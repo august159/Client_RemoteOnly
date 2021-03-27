@@ -6,6 +6,9 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
+import Application from "./pages/Application";
+import Company from "./pages/Company";
+import Offer from "./pages/Offer";
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/application" component={Application} />
+        <ProtectedRoute exact path="/company" component={Company} />
+        <ProtectedRoute exact path="/offer" component={Offer} />
       </Switch>
     </div>
   );
