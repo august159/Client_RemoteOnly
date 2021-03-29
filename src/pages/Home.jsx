@@ -1,5 +1,6 @@
 import React from "react";
 import "./../styles/custom.css";
+import Offers from "./../components/Offers";
 
 class Home extends React.Component {
   render() {
@@ -47,9 +48,9 @@ class Home extends React.Component {
         </section>
 
         <section className="py-3">
-          
           <h3 className="is-size-3 has-text-centered">Aujourd'hui</h3>
-          <div className="pb-3">
+          <Offers />
+          {/* <div className="pb-3">
             <div className="card column is-8">
               <div class="card-content">
                 <div class="media">
@@ -68,9 +69,9 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="pb-3">
+          {/* <div className="pb-3">
             <div className="card column is-8">
               <div class="card-content">
                 <div class="media">
@@ -89,9 +90,9 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="pb-3" >
+          {/* <div className="pb-3" >
             <div className="card column is-8">
               <div class="card-content">
                 <div class="media">
@@ -110,8 +111,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-
+          </div> */}
         </section>
       </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 
-export class Offer extends Component {
+export class Offers extends Component {
   state = {
     offers: [],
   };
@@ -33,4 +33,4 @@ export class Offer extends Component {
   }
 }
 
-export default Offer;
+export default Offers;
