@@ -53,30 +53,23 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getUser() {
+  getUser(id) {
     return service
-      .get("api/user/:id")
+      .get(`api/user/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postUser() {
+  updateUser(id, userInfo) {
     return service
-      .post("api/user/:id")
+      .patch(`api/user/${id}`, userInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateUser() {
+  deleteUser(id) {
     return service
-      .patch("api/user/:id")
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
-
-  deleteUser() {
-    return service
-      .delete("api/user/:id")
+      .delete(`api/user/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -89,30 +82,30 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getApplication() {
+  getApplication(id) {
     return service
-      .get("api/application/:id")
+      .get(`api/application/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateApplication() {
+  createApplication(appInfo) {
     return service
-      .patch("api/application/:id")
+      .post("api/application", appInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postApplication() {
+  updateApplication(id, appInfo) {
     return service
-      .post("api/application")
+      .patch(`api/application/${id}`, appInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteApplication() {
+  deleteApplication(id) {
     return service
-      .delete("api/application/:id")
+      .delete(`api/application/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -125,30 +118,30 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getCompany() {
+  getCompany(id) {
     return service
-      .get("api/company/:id")
+      .get(`api/company/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postCompany() {
+  createCompany(companyInfo) {
     return service
-      .post("api/company/:id")
+      .post("api/company", companyInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateCompany() {
+  updateCompany(id, companyInfo) {
     return service
-      .patch("api/company/:id")
+      .patch(`api/company/${id}`, companyInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteCompany() {
+  deleteCompany(id) {
     return service
-      .delete("api/company/:id")
+      .delete(`api/company/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -161,30 +154,30 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getOffer() {
+  getOffer(id) {
     return service
-      .get("api/offer/:id")
+      .get(`api/offer/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postOffer() {
+  createOffer(offerInfo) {
     return service
-      .post("api/offer/:id")
+      .post(`api/offer`, offerInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateOffer() {
+  updateOffer(id, offerInfo) {
     return service
-      .patch("api/offer/:id")
+      .patch(`api/offer/${id}`, offerInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteOffer() {
+  deleteOffer(id) {
     return service
-      .delete("api/offer/:id")
+      .delete(`api/offer/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },

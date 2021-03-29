@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
+// import OneOffers from "./OneOffer";
 
 export class Offers extends Component {
   state = {
@@ -28,7 +30,7 @@ export class Offers extends Component {
             <p>Il y a {offer.createdAt}</p>
           </div>
         ))} */}
-      <div className="pb-3">
+      {/* <div className="pb-3">
       <div className="card column is-8">
         <div className="card-content">
           <div className="media">
@@ -45,10 +47,22 @@ export class Offers extends Component {
               <p className="subtitle is-6">BlaBlaCar <br/>CDI - €70K</p>
             </div>
           </div>
-        </div>
+        </div> */}
+        <h1>Offers</h1>
+        {this.state.offers.map((offer) => (
+          <Link to={`/offer/${offer._id}`} key={offer._id}>
+            <div>
+              <img src={offer.company.logo} alt="comp-logo" />
+              <p>{offer.company.name}</p>
+              <p>{offer.title}</p>
+              <p>{offer.contractType}</p>
+              <p>Il y a {offer.createdAt}</p>
+            </div>
+          </Link>
+        ))}
       </div>
-    </div> 
-    </div>
+    // </div> 
+    // </div>
     );
   }
 }

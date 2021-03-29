@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
+import CompanyForm from "./../components/Forms/CompanyForm";
 
 export class Company extends Component {
   state = {
@@ -27,6 +28,7 @@ export class Company extends Component {
             <p>{company.name}</p>
           </div>
         ))}
+        <CompanyForm />
       </div>
     );
   }

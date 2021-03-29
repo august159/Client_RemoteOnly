@@ -7,7 +7,7 @@ class Home extends React.Component {
     return (
       <div>
         <section className="hero is-large">
-          <div class="hero-body is-half">
+          <div className="hero-body is-half">
             <h2 className="is-size-1 has-text-white has-text-centered">
               Travailler de France, travailler à domicile, travailler de partout
             </h2>
@@ -15,7 +15,7 @@ class Home extends React.Component {
               Les meilleurs emplois dans le tech et autres pour ceux qui
               souhaitent démarrer leur carrière full remote
             </p>
-            <button class="button is-primary">Poster un job</button>
+            <button className="button is-primary">Poster un job</button>
           </div>
         </section>
         <section className="py-4">
@@ -25,23 +25,23 @@ class Home extends React.Component {
               <h2>🎨</h2>
               <h3 className="has-text-weight-bold">Design</h3>
             </div>
-            <div class="column is-2">
+            <div className="column is-2">
               <h2>💻</h2>
               <h3 className="has-text-weight-bold"> Programmation</h3>
             </div>
-            <div class="column is-2">
+            <div className="column is-2">
               <h2>🔨</h2>
               <h3 className="has-text-weight-bold">Produit</h3>
             </div>
-            <div class="column is-2">
+            <div className="column is-2">
               <h2>🎧</h2>
               <h3 className="has-text-weight-bold">Support Client</h3>
             </div>
-            <div class="column is-2">
+            <div className="column is-2">
               <h2>📈</h2>
               <h3 className="has-text-weight-bold">Sales et Marketing</h3>
             </div>
-            <div class="column is-2">
+            <div className="column is-2">
               <h2>⚙️</h2>
               <h3 className="has-text-weight-bold">DevOps</h3>
             </div>

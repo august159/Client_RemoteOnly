@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 
@@ -54,6 +53,7 @@ class ApplicationForm extends Component {
             value={this.state.firstName}
             name="firstName"
             type="text"
+            defaultValue="Richmond"
           />
         </div>
         <div>
@@ -63,6 +63,7 @@ class ApplicationForm extends Component {
             onChange={this.handleChange}
             name="lastName"
             type="text"
+            defaultValue="AVENAL"
           />
         </div>
         <div>
@@ -72,6 +73,7 @@ class ApplicationForm extends Component {
             value={this.state.email}
             name="email"
             type="text"
+            defaultValue="candidat4@gmail.com"
           />
         </div>
         <div>
@@ -81,6 +83,7 @@ class ApplicationForm extends Component {
             onChange={this.handleChange}
             name="phone"
             type="text"
+            defaultValue="0623344556"
           />
         </div>
         <div>
@@ -90,6 +93,7 @@ class ApplicationForm extends Component {
             value={this.state.linkedIn}
             name="linkedIn"
             type="text"
+            defaultValue="www.linkedin.com/in/richmond"
           />
         </div>
         <div>
@@ -126,6 +130,7 @@ class ApplicationForm extends Component {
             value={this.state.additionalInfo}
             name="additionalInfo"
             type="text"
+            defaultValue="I am a dicreet person that once was CEO until he discovered his true passion: hard rock. And to be fair, I am hard and I rock."
           />
         </div>
         <button>Postuler</button>
