@@ -26,7 +26,7 @@ export class CompanyForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const {
-      // name,
+      name,
       logo,
       city,
       size,
@@ -34,19 +34,29 @@ export class CompanyForm extends Component {
       website,
       description,
     } = this.state;
+
     const formData = new FormData();
-    formData.append("name", this.state.name);
+    formData.append("name", name);
     formData.append("logo", logo);
     formData.append("city", city);
     formData.append("size", size);
     formData.append("industry", industry);
     formData.append("website", website);
     formData.append("description", description);
+    console.log(`formData`, formData);
 
+    // const formData = {
+    //   name,
+    //   city,
+    //   size,
+    //   industry,
+    //   website,
+    //   description,
+    // };
     console.log(`formData`, formData);
 
     service
-      .postCompany(formData)
+      .createCompany(formData)
       .then((response) => {
         console.log(response.data);
         this.props.history.push("/company"); // Redirection to company dashboard
@@ -58,14 +68,14 @@ export class CompanyForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
-        <label htmlFor="company">Nom de l'entreprise*</label>
+      <form onSubmit={this.handleSubmit} /*enctype="multipart/form-data"*/>
+        <label htmlFor="name">Nom de l'entreprise*</label>
         <input
           className="input"
           type="text"
-          id="company"
-          name="company"
-          value={this.state.company}
+          id="name"
+          name="name"
+          value={this.state.name}
           onChange={this.handleChange}
           defaultValue="Ironhack"
         />

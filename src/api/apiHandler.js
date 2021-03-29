@@ -125,16 +125,16 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  createCompany(coInfo) {
+  createCompany(companyInfo) {
     return service
-      .post("api/company", coInfo)
+      .post("api/company", companyInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateCompany(id, coInfo) {
+  updateCompany(id, companyInfo) {
     return service
-      .patch(`api/company/${id}`, coInfo)
+      .patch(`api/company/${id}`, companyInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
