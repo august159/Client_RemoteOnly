@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Application from "./components/Application";
 import Company from "./pages/Company";
-import Offer from "./components/Offer";
+import Offers from "./components/Offers";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <ProtectedRoute exact path="/application" component={Application} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/company" component={Company} />
-        <ProtectedRoute exact path="/offer" component={Offer} />
+        <ProtectedRoute exact path="/offer" component={Offers} />
       </Switch>
     </div>
   );

@@ -9,9 +9,8 @@ export class Application extends Component {
   componentDidMount() {
     apiHandler
       .getApplications(this.state)
-      .then((response) => {
-        this.state({ applications: response.data });
-        console.log(response.data);
+      .then((applications) => {
+        this.setState({ applications });
       })
       .catch((error) => {
         console.log(error);
@@ -23,8 +22,11 @@ export class Application extends Component {
       <div>
         <h1>Applications</h1>
         {this.state.applications.map((application) => (
-          <div key={application.id}>
-            <p>{application.firstName}</p>
+          <div key={application._id}>
+            <p>
+              {application.firstName} {application.lastName}
+            </p>
+            <p>Il y a {application.createdAt}</p>
           </div>
         ))}
       </div>

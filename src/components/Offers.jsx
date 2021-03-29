@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 
-export class Offer extends Component {
+export class Offers extends Component {
   state = {
     offers: [],
   };
@@ -9,9 +9,8 @@ export class Offer extends Component {
   componentDidMount() {
     apiHandler
       .getOffers(this.state)
-      .then((response) => {
-        this.state({ offers: response.data });
-        console.log(response.data);
+      .then((offers) => {
+        this.setState({ offers });
       })
       .catch((error) => {
         console.log(error);
@@ -23,8 +22,10 @@ export class Offer extends Component {
       <div>
         <h1>Offers</h1>
         {this.state.offers.map((offer) => (
-          <div key={offer.id}>
+          <div key={offer._id}>
             <p>{offer.title}</p>
+            <p>{offer.contractType}</p>
+            <p>Il y a {offer.createdAt}</p>
           </div>
         ))}
       </div>
@@ -32,4 +33,4 @@ export class Offer extends Component {
   }
 }
 
-export default Offer;
+export default Offers;
