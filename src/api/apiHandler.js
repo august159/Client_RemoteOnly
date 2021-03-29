@@ -46,40 +46,6 @@ const apiHandler = {
   },
 
   // Users Route
-  getUsers() {
-    return service
-      .get("api/user")
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
-
-  getUser() {
-    return service
-      .get("api/user/:id")
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
-
-  postUser() {
-    return service
-      .post("api/user/:id")
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
-
-  updateUser() {
-    return service
-      .patch("api/user/:id")
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
-
-  deleteUser() {
-    return service
-      .delete("api/user/:id")
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
 
   // Applications Routes
   getApplications() {
@@ -161,7 +127,7 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getOffer() {
+  getOffer(id) {
     return service
       .get("api/offer/:id")
       .then((res) => res.data)

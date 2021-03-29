@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Application from "./components/Application";
 import Company from "./pages/Company";
 import Offers from "./components/Offers";
+import OneOffer from "./components/OneOffer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/offer/:id" component={OneOffer} />
         <ProtectedRoute exact path="/application" component={Application} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/company" component={Company} />
