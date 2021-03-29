@@ -8,10 +8,11 @@ export class OneOffer extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-
+    console.log(id);
     apiHandler
       .getOffer(id)
       .then((offer) => {
+        console.log("offer :>> ", offer);
         this.setState({ offer });
       })
       .catch((error) => {
@@ -20,8 +21,12 @@ export class OneOffer extends Component {
   }
 
   render() {
-    return <div></div>;
-    // <div>{this.state.offer.title}</div>;
+    return (
+      <div>
+        <p>{this.state.offer.jobDescription}</p>
+        <p>{this.state.offer.profileDescription}</p>
+      </div>
+    );
   }
 }
 

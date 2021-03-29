@@ -46,6 +46,33 @@ const apiHandler = {
   },
 
   // Users Route
+  getUsers() {
+    return service
+      .get("api/user")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getUser(id) {
+    return service
+      .get(`api/user/${id}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  updateUser(id, userInfo) {
+    return service
+      .patch(`api/user/${id}`, userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  deleteUser(id) {
+    return service
+      .delete(`api/user/${id}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
   // Applications Routes
   getApplications() {
@@ -55,30 +82,30 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getApplication() {
+  getApplication(id) {
     return service
-      .get("api/application/:id")
+      .get(`api/application/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateApplication() {
+  createApplication(appInfo) {
     return service
-      .patch("api/application/:id")
+      .post("api/application", appInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postApplication() {
+  updateApplication(id, appInfo) {
     return service
-      .post("api/application")
+      .patch(`api/application/${id}`, appInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteApplication() {
+  deleteApplication(id) {
     return service
-      .delete("api/application/:id")
+      .delete(`api/application/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -91,30 +118,30 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getCompany() {
+  getCompany(id) {
     return service
-      .get("api/company/:id")
+      .get(`api/company/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postCompany() {
+  createCompany(coInfo) {
     return service
-      .post("api/company/:id")
+      .post("api/company", coInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateCompany() {
+  updateCompany(id, coInfo) {
     return service
-      .patch("api/company/:id")
+      .patch(`api/company/${id}`, coInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteCompany() {
+  deleteCompany(id) {
     return service
-      .delete("api/company/:id")
+      .delete(`api/company/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -129,28 +156,28 @@ const apiHandler = {
 
   getOffer(id) {
     return service
-      .get("api/offer/:id")
+      .get(`api/offer/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  postOffer() {
+  createOffer(offerInfo) {
     return service
-      .post("api/offer/:id")
+      .post(`api/offer`, offerInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  updateOffer() {
+  updateOffer(id, offerInfo) {
     return service
-      .patch("api/offer/:id")
+      .patch(`api/offer/${id}`, offerInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteOffer() {
+  deleteOffer(id) {
     return service
-      .delete("api/offer/:id")
+      .delete(`api/offer/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },

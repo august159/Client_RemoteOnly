@@ -1,6 +1,5 @@
-import axios from "axios";
 import React, { Component } from "react";
-import apiHandler from "../../api/apiHandler";
+import apiHandler from "./src/api/apiHandler";
 
 class OfferForm extends Component {
   state = {
@@ -44,7 +43,7 @@ class OfferForm extends Component {
 
   render() {
     return (
-      <form method="" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="title">Intitulé du poste</label>
           <input
