@@ -1,12 +1,12 @@
 import React from "react";
-import Offer from "./../components/Offer";
+import Offers from "../components/Offers";
 
 class Home extends React.Component {
   render() {
     return (
       <div>
         <h1>Home Page ∆</h1>
-        <Offer />
+        <Offers />
       </div>
     );
   }
