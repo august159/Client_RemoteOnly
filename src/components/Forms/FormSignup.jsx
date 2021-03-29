@@ -7,6 +7,9 @@ class FormSignup extends Component {
   state = {
     email: "",
     password: "",
+    firstName: "",
+    lastName: "",
+    role: "",
   };
 
   handleChange = (event) => {
@@ -36,6 +39,32 @@ class FormSignup extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
+        <label htmlFor="role">Vous êtes :</label>
+        <select
+          // id="role"
+          value={this.state.value}
+          name="role"
+          onChange={this.handleChange}
+        >
+          <option value="candidate">candidat</option>
+          <option value="recruiter">recruteur</option>
+        </select>
+        <label htmlFor="firstName">Prénom</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.firstName}
+          type="text"
+          id="firstName"
+          name="firstName"
+        />
+        <label htmlFor="lastName">Nom de famille</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.lastName}
+          type="text"
+          id="lastName"
+          name="lastName"
+        />
         <label htmlFor="email">Email</label>
         <input
           onChange={this.handleChange}
@@ -52,7 +81,7 @@ class FormSignup extends Component {
           id="password"
           name="password"
         />
-        <button>Submit</button>
+        <button>Inscription</button>
       </form>
     );
   }

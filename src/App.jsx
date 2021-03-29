@@ -8,8 +8,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Application from "./components/Application";
 import Company from "./pages/Company";
+<<<<<<< HEAD
 import Offer from "./components/Offer";
 // import './App.sass';
+=======
+import Offers from "./components/Offers";
+>>>>>>> c73523420f53187e3160a09f33246a295be8af4d
 
 function App() {
   return (
@@ -22,7 +26,7 @@ function App() {
         <ProtectedRoute exact path="/application" component={Application} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/company" component={Company} />
-        <ProtectedRoute exact path="/offer" component={Offer} />
+        <ProtectedRoute exact path="/offer" component={Offers} />
       </Switch>
     </div>
   );
