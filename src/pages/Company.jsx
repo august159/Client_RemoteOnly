@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import apiHandler from "../api/apiHandler";
 
 export class Company extends Component {
   state = {
@@ -7,8 +7,8 @@ export class Company extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get("http://localhost:5000/api/company")
+    apiHandler
+      .getCompany(this.state)
       .then((response) => {
         this.state({ companies: response.data });
         console.log(response.data);

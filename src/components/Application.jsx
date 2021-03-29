@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import apiHandler from "../api/apiHandler";
 
 export class Application extends Component {
   state = {
@@ -7,8 +7,8 @@ export class Application extends Component {
   };
 
   componentDidMount() {
-    axios
-      .get("http://localhost:5000/api/application")
+    apiHandler
+      .getApplications(this.state)
       .then((response) => {
         this.state({ applications: response.data });
         console.log(response.data);
@@ -24,7 +24,7 @@ export class Application extends Component {
         <h1>Applications</h1>
         {this.state.applications.map((application) => (
           <div key={application.id}>
-            <p>{application.name}</p>
+            <p>{application.firstName}</p>
           </div>
         ))}
       </div>
