@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
+import ApplicationForm from "./../components/Forms/ApplicationForm";
 
 export class Application extends Component {
   state = {
@@ -29,6 +30,7 @@ export class Application extends Component {
             <p>Il y a {application.createdAt}</p>
           </div>
         ))}
+        <ApplicationForm />
       </div>
     );
   }

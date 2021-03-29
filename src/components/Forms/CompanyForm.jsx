@@ -45,16 +45,6 @@ export class CompanyForm extends Component {
     formData.append("description", description);
     console.log(`formData`, formData);
 
-    // const formData = {
-    //   name,
-    //   city,
-    //   size,
-    //   industry,
-    //   website,
-    //   description,
-    // };
-    console.log(`formData`, formData);
-
     service
       .createCompany(formData)
       .then((response) => {
@@ -68,7 +58,7 @@ export class CompanyForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} /*enctype="multipart/form-data"*/>
+      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
         <label htmlFor="name">Nom de l'entreprise*</label>
         <input
           className="input"

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import apiHandler from "../../api/apiHandler";
+import service from "../../api/apiHandler";
+import { withRouter } from "react-router-dom";
+import { withUser } from "../Auth/withUser";
 
-class ApplicationForm extends Component {
+export class ApplicationForm extends Component {
   state = {
     title: "",
     salary: 0,
@@ -14,28 +16,50 @@ class ApplicationForm extends Component {
   };
 
   handleChange = (event) => {
-    const key = event.target.firstName;
-    this.setState({ [key]: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleUpload = (event) => {
+    this.setState({ logo: event.target.files[0] });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("clicked");
 
-    apiHandler
-      .postApplication({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        email: this.state.email,
-        phone: this.state.phone,
-        linkedIn: this.state.linkedIn,
-        gitHub: this.state.gitHub,
-        otherWebsite: this.state.otherWebsite,
-        resume: this.state.resume,
-        additionalInfo: this.state.additionalInfo,
-      })
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      linkedIn,
+      gitHub,
+      otherWebsite,
+      resume,
+      additionalInfo,
+    } = this.state;
+
+    console.log(`this.state`, this.state);
+
+    const formData = new FormData();
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("linkedIn", linkedIn);
+    formData.append("gitHub", gitHub);
+    formData.append("otherWebsite", otherWebsite);
+    formData.append("resume", resume);
+    formData.append("additionalInfo", additionalInfo);
+    formData.append("isSelected", false);
+    formData.append("isReviewed", false);
+    //TODO: Retrieve and add the id of the offer
+
+    service
+      .createApplication(formData)
       .then((response) => {
-        this.props.history.push("/application");
+        console.log(response.data);
+        this.props.history.push("/offer");
       })
       .catch((error) => {
         console.log(error);
@@ -44,99 +68,88 @@ class ApplicationForm extends Component {
 
   render() {
     return (
-      <form method="" onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="firstName">Prénom</label>
-          <input
-            id="title"
-            onChange={this.handleChange}
-            value={this.state.firstName}
-            name="firstName"
-            type="text"
-            defaultValue="Richmond"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Nom de Famille</label>
-          <input
-            value={this.state.lastName}
-            onChange={this.handleChange}
-            name="lastName"
-            type="text"
-            defaultValue="AVENAL"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Email</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.email}
-            name="email"
-            type="text"
-            defaultValue="candidat4@gmail.com"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Téléphone</label>
-          <input
-            value={this.state.phone}
-            onChange={this.handleChange}
-            name="phone"
-            type="text"
-            defaultValue="0623344556"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Lnkedin</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.linkedIn}
-            name="linkedIn"
-            type="text"
-            defaultValue="www.linkedin.com/in/richmond"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Github</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.gitHub}
-            name="gitHub"
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Autre website</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.otherWebsite}
-            name="otherWebsite"
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="">CV</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.resume}
-            name="resume"
-            type="file"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Ajouter un message</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.additionalInfo}
-            name="additionalInfo"
-            type="text"
-            defaultValue="I am a dicreet person that once was CEO until he discovered his true passion: hard rock. And to be fair, I am hard and I rock."
-          />
-        </div>
+      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+        <label htmlFor="firstName">Prénom*</label>
+        <input
+          id="firstName"
+          onChange={this.handleChange}
+          value={this.state.firstName}
+          name="firstName"
+          type="text"
+          // defaultValue="Richmond"
+        />
+        <label htmlFor="lastName">NOM*</label>
+        <input
+          value={this.state.lastName}
+          onChange={this.handleChange}
+          name="lastName"
+          id="lastName"
+          type="text"
+          // defaultValue="AVENAL"
+        />
+        <label htmlFor="email">Email*</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.email}
+          name="email"
+          id="email"
+          type="text"
+          // defaultValue="candidat4@gmail.com"
+        />
+        <label htmlFor="phone">Téléphone*</label>
+        <input
+          value={this.state.phone}
+          onChange={this.handleChange}
+          name="phone"
+          id="phone"
+          type="text"
+          // defaultValue="0623344556"
+        />
+        <label htmlFor="linkedIn">Lnkedin</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.linkedIn}
+          name="linkedIn"
+          id="linkedIn"
+          type="text"
+          // defaultValue="www.linkedin.com/in/richmond"
+        />
+        <label htmlFor="gitHub">Github</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.gitHub}
+          name="gitHub"
+          id="gitHub"
+          type="text"
+        />
+        <label htmlFor="otherWebsite">Autre website</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.otherWebsite}
+          name="otherWebsite"
+          id="otherWebsite"
+          type="text"
+        />
+        <label htmlFor="resume">CV</label>
+        <input
+          onChange={this.handleUpload}
+          name="resume"
+          id="resume"
+          type="file"
+          id="resume"
+        />
+        <label htmlFor="additionalInfo">Ajouter un message</label>
+        <textarea
+          onChange={this.handleChange}
+          value={this.state.additionalInfo}
+          name="additionalInfo"
+          id="additionalInfo"
+          // defaultValue="I am a dicreet person that once was CEO until he discovered his true passion: hard rock. And to be fair, I am hard and I rock."
+        />
         <button>Postuler</button>
       </form>
     );
   }
 }
 
-export default ApplicationForm;
+export default withRouter(withUser(ApplicationForm));
