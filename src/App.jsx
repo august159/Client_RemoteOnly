@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Application from "./components/Application";
 import Company from "./pages/Company";
 import Offer from "./components/Offer";
+// import './App.sass';
 
 function App() {
   return (
