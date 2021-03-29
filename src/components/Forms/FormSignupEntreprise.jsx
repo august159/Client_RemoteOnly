@@ -71,43 +71,54 @@ class FormSignup extends Component {
           <option value="candidate">candidat</option>
           <option value="recruiter">recruteur</option>
         </select> */}
-        <label htmlFor="firstName">Prénom</label>
+        <label htmlFor="city">Ville</label>
         <input
           onChange={this.handleChange}
           value={this.state.firstName}
           className="input pb-4"
           type="text"
-          id="firstName"
-          name="firstName"
+          id="city"
+          name="city"
         />
-        <label htmlFor="lastName">Nom de famille</label>
+        <label htmlFor="size">Taille de l'entreprise</label>
         <input
           onChange={this.handleChange}
           value={this.state.lastName}
           className="input pb-4"
           type="text"
-          id="lastName"
-          name="lastName"
+          id="size"
+          name="size"
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="industry">Industrie</label>
         <input
           onChange={this.handleChange}
           value={this.state.email}
           className="input pb-4"
-          type="email"
-          id="email"
-          name="email"
+          type="text"
+          id="industry"
+          name="industry"
         />
-        <label htmlFor="password">Password</label>
+
+        <label htmlFor="website">Site web</label>
         <input
           onChange={this.handleChange}
-          value={this.state.password}
+          value={this.state.email}
           className="input pb-4"
-          type="password"
-          id="password"
-          name="password"
+          type="text"
+          id="website"
+          name="website"
         />
-        <button className="button is-link">Suivant</button>
+
+        <label htmlFor="description">Description</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.email}
+          className="input pb-4"
+          type="text"
+          id="description"
+          name="description"
+        />
+        <button className="button is-link">Inscription</button>
       </form>
     );
   }
