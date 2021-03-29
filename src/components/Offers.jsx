@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 
 export class Offers extends Component {
@@ -22,11 +23,15 @@ export class Offers extends Component {
       <div>
         <h1>Offers</h1>
         {this.state.offers.map((offer) => (
-          <div key={offer._id}>
-            <p>{offer.title}</p>
-            <p>{offer.contractType}</p>
-            <p>Il y a {offer.createdAt}</p>
-          </div>
+          <Link to={`/offer/${offer._id}`} key={offer._id}>
+            <div>
+              <img src={offer.company.logo} alt="comp-logo" />
+              <p>{offer.company.name}</p>
+              <p>{offer.title}</p>
+              <p>{offer.contractType}</p>
+              <p>Il y a {offer.createdAt}</p>
+            </div>
+          </Link>
         ))}
       </div>
     );

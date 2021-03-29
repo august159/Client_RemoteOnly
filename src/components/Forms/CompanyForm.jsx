@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import service from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
+import { withUser } from "../Auth/withUser";
 
 export class CompanyForm extends Component {
   state = {
     name: "",
-    logo: null,
+    logo: "",
     city: "",
     size: "",
     industry: "",
@@ -25,7 +26,7 @@ export class CompanyForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const {
-      name,
+      // name,
       logo,
       city,
       size,
@@ -34,13 +35,15 @@ export class CompanyForm extends Component {
       description,
     } = this.state;
     const formData = new FormData();
-    formData.append("name", name);
+    formData.append("name", this.state.name);
     formData.append("logo", logo);
     formData.append("city", city);
     formData.append("size", size);
     formData.append("industry", industry);
     formData.append("website", website);
     formData.append("description", description);
+
+    console.log(`formData`, formData);
 
     service
       .postCompany(formData)
@@ -55,7 +58,7 @@ export class CompanyForm extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
         <label htmlFor="company">Nom de l'entreprise*</label>
         <input
           className="input"
@@ -64,6 +67,7 @@ export class CompanyForm extends Component {
           name="company"
           value={this.state.company}
           onChange={this.handleChange}
+          defaultValue="Ironhack"
         />
         <label htmlFor="logo">Logo</label>
         <input
@@ -71,7 +75,6 @@ export class CompanyForm extends Component {
           type="file"
           id="logo"
           name="logo"
-          value={this.state.logo}
           onChange={this.handleFile}
         />
         <label htmlFor="city">Ville</label>
@@ -82,6 +85,7 @@ export class CompanyForm extends Component {
           name="city"
           value={this.state.city}
           onChange={this.handleChange}
+          defaultValue="Madrid"
         />
         <label htmlFor="size">Taille de l'entreprise</label>
         <input
@@ -91,6 +95,7 @@ export class CompanyForm extends Component {
           name="size"
           value={this.state.size}
           onChange={this.handleChange}
+          defaultValue="100"
         />
         <label htmlFor="industry">Domaine d'activité</label>
         <input
@@ -100,6 +105,7 @@ export class CompanyForm extends Component {
           name="industry"
           value={this.state.industry}
           onChange={this.handleChange}
+          defaultValue="Enseignement"
         />
         <label htmlFor="website">Site website</label>
         <input
@@ -109,15 +115,15 @@ export class CompanyForm extends Component {
           name="website"
           value={this.state.website}
           onChange={this.handleChange}
+          defaultValue="ironhack.com"
         />
         <label htmlFor="description">Description</label>
         <textarea
           name="description"
           id="description"
-          cols="30"
-          rows="10"
           value={this.state.description}
           onChange={this.handleChange}
+          defaultValue="Ironhack est une entreprise d'enseignement aux métiers du digital (web-development, UX, data & cyber-security)"
         />
         <button>S'inscrire</button>
       </form>
@@ -125,4 +131,4 @@ export class CompanyForm extends Component {
   }
 }
 
-export default withRouter(CompanyForm);
+export default withRouter(withUser(CompanyForm));
