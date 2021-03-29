@@ -49,74 +49,54 @@ class Home extends React.Component {
         </section>
 
         <section className="py-3">
-          
           <h3 className="is-size-3 has-text-centered">Aujourd'hui</h3>
-{/*           
+          <Offers/>
+
+{/* 
 
           <div className="pb-3">
             <div className="card column is-8">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
+              <div className="card-content">
+                <div className="media">
+                  <div className="media-left">
+                    <figure className="image is-48x48">
                       <img
                         src="https://dxxbxu0f802py.cloudfront.net/wp-content/uploads/2020/03/17104851/BLOG%20THUMBNAIL-768x768.png"
                         alt="Placeholder image"
                       />
                     </figure>
                   </div>
-                  <div class="media-content">
-                    <p class="title is-4">Product Manager</p>
-                    <p class="subtitle is-6">BlaBlaCar <br/>CDI - €70K</p>
+                  <div className="media-content">
+                    <p className="title is-4">Product Manager</p>
+                    <p className="subtitle is-6">BlaBlaCar <br/>CDI - €70K</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
 
-          <div className="pb-3">
+           <div className="pb-3" >
             <div className="card column is-8">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
+              <div className="card-content">
+                <div className="media">
+                  <div className="media-left">
+                    <figure className="image is-48x48">
                       <img
                         src="https://dxxbxu0f802py.cloudfront.net/wp-content/uploads/2020/03/17104851/BLOG%20THUMBNAIL-768x768.png"
                         alt="Placeholder image"
                       />
                     </figure>
                   </div>
-                  <div class="media-content">
-                    <p class="title is-4">Product Manager</p>
-                    <p class="subtitle is-6">BlaBlaCar <br/>CDI - €70K</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pb-3" >
-            <div className="card column is-8">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img
-                        src="https://dxxbxu0f802py.cloudfront.net/wp-content/uploads/2020/03/17104851/BLOG%20THUMBNAIL-768x768.png"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4">Product Manager</p>
-                    <p class="subtitle is-6">BlaBlaCar <br/>CDI - €70K</p>
+                  <div className="media-content">
+                    <p className="title is-4">Product Manager</p>
+                    <p className="subtitle is-6">BlaBlaCar <br/>CDI - €70K</p>
                   </div>
                 </div>
               </div>
             </div>
           </div> */}
 
-        <Offers/>
+        
         </section>
       </div>
     );

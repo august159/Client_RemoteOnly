@@ -40,7 +40,29 @@ class FormSignup extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="role">Vous êtes :</label>
-        <select
+        <div class="control">
+          <label className="radio">
+            <input
+              type="radio"
+              value={this.state.value}
+              name="role"
+              onChange={this.handleChange}
+            />
+            Candidat
+          </label>
+          <label className="radio">
+            <input
+              type="radio"
+              value={this.state.value}
+              name="role"
+              onChange={this.handleChange}
+              checked
+            />
+            Recruteur
+          </label>
+        </div>
+
+        {/* <select
           // id="role"
           value={this.state.value}
           name="role"
@@ -48,11 +70,12 @@ class FormSignup extends Component {
         >
           <option value="candidate">candidat</option>
           <option value="recruiter">recruteur</option>
-        </select>
+        </select> */}
         <label htmlFor="firstName">Prénom</label>
         <input
           onChange={this.handleChange}
           value={this.state.firstName}
+          className="input pb-4"
           type="text"
           id="firstName"
           name="firstName"
@@ -61,6 +84,7 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.lastName}
+          className="input pb-4"
           type="text"
           id="lastName"
           name="lastName"
@@ -69,6 +93,7 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.email}
+          className="input pb-4"
           type="email"
           id="email"
           name="email"
@@ -77,11 +102,12 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.password}
+          className="input pb-4"
           type="password"
           id="password"
           name="password"
         />
-        <button>Inscription</button>
+        <button className="button is-link">Inscription</button>
       </form>
     );
   }
