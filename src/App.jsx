@@ -10,6 +10,7 @@ import Application from "./components/Application";
 import Company from "./pages/Company";
 import Offers from "./components/Offers";
 import OneOffer from "./components/OneOffer";
+import OfferCreation from "./pages/OfferCreation";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/company" component={Company} />
         <Route exact path="/offer" component={Offers} />
         <Route exact path="/offer/:id" component={OneOffer} />
+        <Route exact path="/offerCreation/" component={OfferCreation} />
       </Switch>
     </div>
   );

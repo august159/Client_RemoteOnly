@@ -1,5 +1,6 @@
 import React from "react";
 import { UserContext } from "./UserContext";
+import NavMain from "./../NavMain";
 
 // This is what we call a HOC (Higher Order Component).
 // It takes a component as a parameter and it returns a component.

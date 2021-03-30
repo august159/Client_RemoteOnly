@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import { withUser } from "../Auth/withUser";
-import service from "../../api/apiHandler";
+import apiHandler from "../../api/apiHandler";
 
 class FormSignup extends Component {
   state = {
@@ -9,21 +9,23 @@ class FormSignup extends Component {
     password: "",
     firstName: "",
     lastName: "",
-    role: "candidate",
+    role: "",
   };
 
   handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    const value = event.target.value;
+    const key = event.target.name;
+
+    this.setState({ [key]: value });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`this.state`, this.state);
-    service
+
+    apiHandler
       .signup(this.state)
       .then((data) => {
-        // this.props.context.setUser(data);
+        this.props.context.setUser(data);
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +45,6 @@ class FormSignup extends Component {
             <input
               type="radio"
               value={this.state.value}
-              className="mr-1"
               name="role"
               onChange={this.handleChange}
             />
@@ -52,7 +53,6 @@ class FormSignup extends Component {
           <label className="radio">
             <input
               type="radio"
-              className="mr-1"
               value={this.state.value}
               name="role"
               onChange={this.handleChange}
@@ -71,43 +71,54 @@ class FormSignup extends Component {
           <option value="candidate">candidat</option>
           <option value="recruiter">recruteur</option>
         </select> */}
-        <label htmlFor="firstName">Prénom</label>
+        <label htmlFor="city">Ville</label>
         <input
-          className="input my-2"
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={this.state.firstName}
           onChange={this.handleChange}
+          value={this.state.firstName}
+          className="input pb-4"
+          type="text"
+          id="city"
+          name="city"
         />
-        <label htmlFor="lastName">Nom de famille</label>
+        <label htmlFor="size">Taille de l'entreprise</label>
         <input
-          className="input my-2"
           onChange={this.handleChange}
           value={this.state.lastName}
+          className="input pb-4"
           type="text"
-          id="lastName"
-          name="lastName"
+          id="size"
+          name="size"
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="industry">Industrie</label>
         <input
-          className="input my-2"
           onChange={this.handleChange}
           value={this.state.email}
-          type="email"
-          id="email"
-          name="email"
+          className="input pb-4"
+          type="text"
+          id="industry"
+          name="industry"
         />
-        <label htmlFor="password">Password</label>
+
+        <label htmlFor="website">Site web</label>
         <input
-          className="input my-2"
           onChange={this.handleChange}
-          value={this.state.password}
-          type="password"
-          id="password"
-          name="password"
+          value={this.state.email}
+          className="input pb-4"
+          type="text"
+          id="website"
+          name="website"
         />
-        <button className="button is-link">Suivant</button>
+
+        <label htmlFor="description">Description</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.email}
+          className="input pb-4"
+          type="text"
+          id="description"
+          name="description"
+        />
+        <button className="button is-link">Inscription</button>
       </form>
     );
   }

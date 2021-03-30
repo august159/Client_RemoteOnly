@@ -38,10 +38,16 @@ class FormSignin extends Component {
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
+        <input className="input my-2" type="email" id="email" name="email" />
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
+        <input
+          className="input my-2"
+          type="password"
+          id="password"
+          name="password"
+        />
+        <button className="button is-link my-2">Submit</button>
+        <p>Vous n’avez pas de compte ? <a className="has-text-link" href="/signup"> S’inscrire ici</a></p>
       </form>
     );
   }
