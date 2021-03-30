@@ -31,7 +31,7 @@ const NavMain = (props) => {
         <div className="navbar-menu navbar-end">
           {context.isLoggedIn && (
             <React.Fragment>
-              <NavLink className="navbar-item" exact to="/canditate/:id">
+              <NavLink className="navbar-item" exact to="/candidate">
                 <h4>My Dashboard</h4>
               </NavLink>
               <NavLink className="navbar-item" to="/profile">
