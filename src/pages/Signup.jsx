@@ -14,7 +14,7 @@ const Signup = (props) => {
       />
     </div>
     <div class="column is-half">
-      <h3 className="is-size-3 has-text-weight-semibold">Créer votre compte</h3>
+      <h3 className="is-size-3 has-text-weight-semibold mb-4">Créer votre compte</h3>
       <FormSignup />
     </div>
   </div>

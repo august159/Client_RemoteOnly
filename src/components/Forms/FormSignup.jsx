@@ -45,6 +45,7 @@ class FormSignup extends Component {
             <input
               type="radio"
               value={this.state.value}
+              className="mr-1"
               name="role"
               onChange={this.handleChange}
             />
@@ -53,6 +54,7 @@ class FormSignup extends Component {
           <label className="radio">
             <input
               type="radio"
+              className="mr-1"
               value={this.state.value}
               name="role"
               onChange={this.handleChange}
@@ -75,7 +77,7 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.firstName}
-          className="input pb-4"
+          className="input my-2"
           type="text"
           id="firstName"
           name="firstName"
@@ -84,7 +86,7 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.lastName}
-          className="input pb-4"
+          className="input my-2"
           type="text"
           id="lastName"
           name="lastName"
@@ -93,7 +95,7 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.email}
-          className="input pb-4"
+          className="input my-2"
           type="email"
           id="email"
           name="email"
@@ -102,7 +104,7 @@ class FormSignup extends Component {
         <input
           onChange={this.handleChange}
           value={this.state.password}
-          className="input pb-4"
+          className="input my-2"
           type="password"
           id="password"
           name="password"

@@ -12,7 +12,7 @@ const Signin = (props) => {
         />
       </div>
       <div class="column is-half">
-        <h3 className="is-size-3 has-text-weight-semibold">Connexion à l'espace</h3>
+        <h3 className="is-size-3 has-text-weight-semibold mb-4">Connexion à l'espace</h3>
         <FormSignin />
       </div>
     </div>

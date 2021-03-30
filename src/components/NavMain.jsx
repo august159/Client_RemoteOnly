@@ -30,10 +30,10 @@ const NavMain = (props) => {
         </div>
 
         <div className="navbar-menu navbar-end">
-          <NavLink className="navbar-item" exact to="/Signup">
+          <NavLink className="navbar-item" exact to="/signin">
             <h4>Connexion</h4>
           </NavLink>
-          <NavLink className="navbar-item" exact to="/signin">
+          <NavLink className="navbar-item" exact to="/signup">
             <h4>S'inscrire</h4>
           </NavLink>
           <NavLink className="navbar-item has-background-link-dark has-text-white" exact to="/Signup">
