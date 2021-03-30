@@ -19,7 +19,6 @@ class Home extends React.Component {
           </div>
         </section>
         <section className="py-4">
-        
           <div className="columns pl-8">
             <div className="column is-2 column is-half">
               <h2>🎨</h2>
@@ -50,7 +49,7 @@ class Home extends React.Component {
 
         <section className="py-3">
           <h3 className="is-size-3 has-text-centered">Aujourd'hui</h3>
-          <Offers/>
+          <Offers />
         </section>
       </div>
     );

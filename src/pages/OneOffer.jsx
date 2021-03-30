@@ -12,7 +12,6 @@ export class OneOffer extends Component {
     apiHandler
       .getOffer(id)
       .then((offer) => {
-        console.log("offer :>> ", offer);
         this.setState({ offer });
       })
       .catch((error) => {

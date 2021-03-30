@@ -6,6 +6,8 @@ import apiHandler from "../api/apiHandler";
 const NavMain = (props) => {
   const { context } = props;
 
+  console.log(`context.user`, context.user);
+
   function handleLogout() {
     apiHandler
       .logout()
@@ -28,49 +30,37 @@ const NavMain = (props) => {
             />
           </NavLink>
         </div>
-
         <div className="navbar-menu navbar-end">
-          <NavLink className="navbar-item" exact to="/signin">
-            <h4>Connexion</h4>
-          </NavLink>
-          <NavLink className="navbar-item" exact to="/signup">
-            <h4>S'inscrire</h4>
-          </NavLink>
-          <NavLink
-            className="navbar-item has-background-link-dark has-text-white"
-            exact
-            to="/offer"
-          >
-            <h4>Poster un job</h4>
-          </NavLink>
-          {/* <ul className="nav-list">
-            {context.isLoggedIn && (
-              <React.Fragment>
-                <li>
-                  <NavLink to="/profile">
-                    {context.user && context.user.email}
-                  </NavLink>
-                </li>
-                <li>
-                  <p onClick={handleLogout}>Logout</p>
-                </li>
-              </React.Fragment>
-            )}
-            {!context.isLoggedIn && (
-              <React.Fragment>
-                <li>
-                  <NavLink to="/signin">Log in</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/signup">Create account</NavLink>
-                </li>
-              </React.Fragment>
-            )} */}
-          {/* </ul> */}
+          {context.isLoggedIn && (
+            <React.Fragment>
+              <NavLink className="navbar-item" to="/profile">
+                {context.user && `Bonjour ${context.user.firstName}`}
+              </NavLink>
+              <div className="navbar-item has-background-link-dark has-text-white">
+                <p onClick={handleLogout}>Logout</p>
+              </div>
+            </React.Fragment>
+          )}
+          {!context.isLoggedIn && (
+            <React.Fragment>
+              <NavLink className="navbar-item" exact to="/signin">
+                <h4>Connexion</h4>
+              </NavLink>
+              <NavLink className="navbar-item" exact to="/signup">
+                <h4>S'inscrire</h4>
+              </NavLink>
+              <NavLink
+                className="navbar-item has-background-link-dark has-text-white"
+                exact
+                to="/application"
+              >
+                <h4>Poster un job</h4>
+              </NavLink>
+            </React.Fragment>
+          )}
         </div>
       </div>
     </nav>
   );
 };
-
 export default withUser(NavMain);

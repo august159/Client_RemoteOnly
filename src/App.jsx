@@ -12,6 +12,8 @@ import Offer from "./pages/Offer";
 import DashboardCandidate from "./pages/DashboardCandidate";
 import DashboardRecruiter from "./pages/DashboardRecruiter";
 import ApplicationConfirmation from "./pages/ApplicationConfirmation";
+import OneOffer from "./pages/OneOffer";
+import OneApplication from "./pages/OneApplication";
 
 function App() {
   return (
@@ -27,11 +29,13 @@ function App() {
           path="/application/confirmation"
           component={ApplicationConfirmation}
         />
-        <Route exact path="/candidate" component={DashboardCandidate} />
+        <Route exact path="/candidate/:id" component={DashboardCandidate} />
         <Route exact path="/recruiter" component={DashboardRecruiter} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/company" component={CompanyProfile} />
         <Route exact path="/offer" component={Offer} />
+        <Route exact path="/offer/:id" component={OneOffer} />
+        <Route exact path="/application/:id" component={OneApplication} />
       </Switch>
     </div>
   );

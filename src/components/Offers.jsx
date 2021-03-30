@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
-// import OneOffers from "./OneOffer";
 
 export class Offers extends Component {
   state = {
@@ -23,7 +22,6 @@ export class Offers extends Component {
     return (
       <div>
         <div className="mb-3">
-          <h1>Offers</h1>
           {this.state.offers.map((offer) => (
             <Link to={`/offer/${offer._id}`} key={offer._id}>
               <div className="card column is-8 my-4">
@@ -31,21 +29,19 @@ export class Offers extends Component {
                   <div className="media">
                     <div className="media-left">
                       <div>
-                        <p></p>
-                        <p></p>
                         <figure className="image is-48x48">
                           <img src={offer.company.logo} alt="comp-logo" />
                         </figure>
                       </div>
                       <div className="media-content">
                         <p className="title is-4">{offer.title}</p>
-                        <p className="subtitle is-6">
+                        <div className="subtitle is-6">
                           {offer.company.name} <br />
                           <p>
                             {offer.contractType} <br />
                             Il y a {offer.createdAt}
                           </p>
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </div>
