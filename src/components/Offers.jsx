@@ -22,7 +22,6 @@ export class Offers extends Component {
     return (
       <div>
         <div className="mb-3">
-          <h1>Offers</h1>
           {this.state.offers.map((offer) => (
             <Link to={`/offer/${offer._id}`} key={offer._id}>
               <div className="card column is-8 my-4">
