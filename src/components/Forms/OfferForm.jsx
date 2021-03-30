@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
+import { withUser } from "../Auth/withUser";
 
 class OfferForm extends Component {
   state = {

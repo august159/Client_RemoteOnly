@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
-import CompanyForm from "./../components/Forms/CompanyForm";
+import CompanyForm from "../components/Forms/CompanyForm";
 
-export class Company extends Component {
+export class CompanyProfile extends Component {
   state = {
     companies: [],
   };
@@ -34,4 +34,4 @@ export class Company extends Component {
   }
 }
 
-export default Company;
+export default CompanyProfile;
