@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
-// import OneOffers from "./OneOffer";
 
 export class Offers extends Component {
   state = {

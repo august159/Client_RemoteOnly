@@ -2,10 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
-
 const NavMain = (props) => {
   const { context } = props;
-
   function handleLogout() {
     apiHandler
       .logout()
@@ -16,7 +14,6 @@ const NavMain = (props) => {
         console.log(error);
       });
   }
-
   return (
     <nav className="NavMain pr-4">
       <div className="navbar is-transparent">
@@ -28,7 +25,6 @@ const NavMain = (props) => {
             />
           </NavLink>
         </div>
-
         <div className="navbar-menu navbar-end">
           <NavLink className="navbar-item" exact to="/signin">
             <h4>Connexion</h4>
@@ -39,7 +35,7 @@ const NavMain = (props) => {
           <NavLink
             className="navbar-item has-background-link-dark has-text-white"
             exact
-            to="/offer"
+            to="/Signup"
           >
             <h4>Poster un job</h4>
           </NavLink>
@@ -72,5 +68,4 @@ const NavMain = (props) => {
     </nav>
   );
 };
-
 export default withUser(NavMain);
