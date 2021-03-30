@@ -26,10 +26,10 @@ function App() {
         <Route exact path="/application" component={Application} />
         <Route
           exact
-          path="/application/confirmation"
+          path="/appconfirmation"
           component={ApplicationConfirmation}
         />
-        <Route exact path="/candidate/:id" component={DashboardCandidate} />
+        <Route exact path="/candidate" component={DashboardCandidate} />
         <Route exact path="/recruiter" component={DashboardRecruiter} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/company" component={CompanyProfile} />

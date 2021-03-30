@@ -6,8 +6,6 @@ import apiHandler from "../api/apiHandler";
 const NavMain = (props) => {
   const { context } = props;
 
-  console.log(`context.user`, context.user);
-
   function handleLogout() {
     apiHandler
       .logout()
@@ -33,6 +31,9 @@ const NavMain = (props) => {
         <div className="navbar-menu navbar-end">
           {context.isLoggedIn && (
             <React.Fragment>
+              <NavLink className="navbar-item" exact to="/candidate">
+                <h4>My Dashboard</h4>
+              </NavLink>
               <NavLink className="navbar-item" to="/profile">
                 {context.user && `Bonjour ${context.user.firstName}`}
               </NavLink>

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
+
 import CandidateApplications from "./../components/CandidateApplications";
 
-function Dashboard(props) {
-  return (
-    <div>
-      <h1>Dashboard</h1>
+export class DashboardCandidate extends Component {
+  render() {
+    return (
       <div>
-        <h2>Jobs postulés</h2>
-        <CandidateApplications userId={props.match.params.id} />
+        <h2>dashboard</h2>
+        <CandidateApplications />
       </div>
-      <div></div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Dashboard;
+export default DashboardCandidate;

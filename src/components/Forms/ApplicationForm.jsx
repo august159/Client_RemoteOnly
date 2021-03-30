@@ -5,15 +5,61 @@ import { withUser } from "../Auth/withUser";
 
 export class ApplicationForm extends Component {
   state = {
-    title: "",
-    salary: 0,
-    fieldWork: "",
-    startingDate: "",
-    contractType: "",
-    jobDescription: "",
-    profileDescription: "",
-    recruitmentProcess: "",
+    // Import candidate date if logged in
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    linkedIn: "",
+    gitHub: "",
+    otherWebsite: "",
+    resume: "",
+    additionalInfo: "",
   };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.context.isLoading !== prevProps.context.isLoading) {
+      this.setState({
+        // Import candidate date if logged in
+        firstName:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.firstName
+            : "",
+        lastName:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.lastName
+            : "",
+        email:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.email
+            : "",
+        phone:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.phone
+            : "",
+        linkedIn:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.linkedIn
+            : "",
+        gitHub:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.gitHub
+            : "",
+        otherWebsite:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.otherWebsite
+            : "",
+        // resume:
+        //   this.props.context.user.role === "candidate"
+        //     ? this.props.context.user.avatar
+        //     : "",
+        additionalInfo:
+          this.props.context.user.role === "candidate"
+            ? this.props.context.user.additionalInfo
+            : "",
+      });
+    }
+  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,8 +85,6 @@ export class ApplicationForm extends Component {
       additionalInfo,
     } = this.state;
 
-    console.log(`this.state`, this.state);
-
     const formData = new FormData();
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
@@ -53,7 +97,8 @@ export class ApplicationForm extends Component {
     formData.append("additionalInfo", additionalInfo);
     formData.append("isSelected", false);
     formData.append("isReviewed", false);
-    //TODO: Retrieve and add the id of the offer
+    this.props.context.user &&
+      formData.append("user", this.props.context.user._id);
 
     service
       .createApplication(formData)
@@ -64,11 +109,27 @@ export class ApplicationForm extends Component {
       .catch((error) => {
         console.log(error);
       });
+
+    this.setState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      linkedIn: "",
+      gitHub: "",
+      otherWebsite: "",
+      resume: "",
+      additionalInfo: "",
+    });
   };
 
   render() {
+    console.log(`this.props.context`, this.props.context);
+    if (this.props.context.isLoading) {
+      return <div>...Loading...</div>;
+    }
     return (
-      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+      <form onSubmit={this.handleSubmit} encType="multipart/form-data">
         <label htmlFor="firstName">Prénom*</label>
         <input
           id="firstName"
@@ -76,7 +137,6 @@ export class ApplicationForm extends Component {
           value={this.state.firstName}
           name="firstName"
           type="text"
-          // defaultValue="Richmond"
         />
         <label htmlFor="lastName">NOM*</label>
         <input
@@ -85,7 +145,6 @@ export class ApplicationForm extends Component {
           name="lastName"
           id="lastName"
           type="text"
-          // defaultValue="AVENAL"
         />
         <label htmlFor="email">Email*</label>
         <input
@@ -94,7 +153,6 @@ export class ApplicationForm extends Component {
           name="email"
           id="email"
           type="text"
-          // defaultValue="candidat4@gmail.com"
         />
         <label htmlFor="phone">Téléphone*</label>
         <input
@@ -103,7 +161,6 @@ export class ApplicationForm extends Component {
           name="phone"
           id="phone"
           type="text"
-          // defaultValue="0623344556"
         />
         <label htmlFor="linkedIn">Lnkedin</label>
         <input
@@ -112,7 +169,6 @@ export class ApplicationForm extends Component {
           name="linkedIn"
           id="linkedIn"
           type="text"
-          // defaultValue="www.linkedin.com/in/richmond"
         />
         <label htmlFor="gitHub">Github</label>
         <input
@@ -144,7 +200,6 @@ export class ApplicationForm extends Component {
           value={this.state.additionalInfo}
           name="additionalInfo"
           id="additionalInfo"
-          // defaultValue="I am a dicreet person that once was CEO until he discovered his true passion: hard rock. And to be fair, I am hard and I rock."
         />
         <button>Postuler</button>
       </form>

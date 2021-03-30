@@ -1,7 +1,7 @@
 import React from "react";
 
-function ApplicationConfirmation() {
+const ApplicationConfirmation = () => {
   return <div></div>;
-}
+};
 
 export default ApplicationConfirmation;

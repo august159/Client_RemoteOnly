@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 // import DashboardCandidate from "./../pages/DashboardCandidate";
-// import UserContext from "./../components/Auth/UserContext";
+import { withUser } from "./../components/Auth/withUser";
 
 export class CandidateApplications extends Component {
   state = {
-    userInfo: [],
+    offerId: "",
   };
 
   componentDidMount() {
-    console.log(this.props, "++++++++++++++++++++++++");
-    const id = this.props.userId;
+    const id = this.props.context.user._id;
+    console.log("id :>> ", id);
+
     apiHandler
       .getUser(id)
       .then((userInfo) => {
-        this.setState({ userInfo });
+        console.log("userInfo :>> ", userInfo);
+        const applications = userInfo.applications;
+        console.log("applications :>> ", applications);
       })
       .catch((error) => {
         console.log(error);
@@ -22,13 +25,15 @@ export class CandidateApplications extends Component {
   }
 
   render() {
+    console.log(this.applications);
     return (
       <div>
-        <h1>Hello</h1>
-        <div>{this.state.userInfo.companies}</div>
+        {/* {this.applications.map((application) => {
+          <p>{application}</p>;
+        })} */}
       </div>
     );
   }
 }
 
-export default CandidateApplications;
+export default withUser(CandidateApplications);
