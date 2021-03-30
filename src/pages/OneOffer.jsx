@@ -8,7 +8,6 @@ export class OneOffer extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log(id);
     apiHandler
       .getOffer(id)
       .then((offer) => {
@@ -22,8 +21,18 @@ export class OneOffer extends Component {
   render() {
     return (
       <div>
-        <p>{this.state.offer.jobDescription}</p>
-        <p>{this.state.offer.profileDescription}</p>
+        <div className="box">
+          <h2 className="title is-4">Description du poste</h2>
+
+          <p>{this.state.offer.jobDescription}</p>
+        </div>
+        <div className="box">
+          <h2 className="title is-4">Profil recherché</h2>
+          <p>{this.state.offer.profileDescription}</p>
+        </div>
+        <div className=" has-text-centered">
+          <button className="button is-info">Postuler</button>
+        </div>
       </div>
     );
   }
