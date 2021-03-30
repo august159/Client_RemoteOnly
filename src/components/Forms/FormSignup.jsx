@@ -13,7 +13,10 @@ class FormSignup extends Component {
   };
 
   handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, type } = event.target;
+    if (type === "checkbox") {
+      value = event.target.checked;
+    }
     this.setState({ [name]: value });
   };
 
@@ -23,7 +26,7 @@ class FormSignup extends Component {
     service
       .signup(this.state)
       .then((data) => {
-        // this.props.context.setUser(data);
+        this.props.context.setUser(data); //? Defines the values in currentUser ?
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +45,8 @@ class FormSignup extends Component {
           <label className="radio">
             <input
               type="radio"
-              value={this.state.value}
+              value="candidate"
+              checked={this.state.role === "candidate"}
               className="mr-1"
               name="role"
               onChange={this.handleChange}
@@ -53,24 +57,14 @@ class FormSignup extends Component {
             <input
               type="radio"
               className="mr-1"
-              value={this.state.value}
+              value="recruiter"
               name="role"
+              checked={this.state.role === "recruiter"}
               onChange={this.handleChange}
-              checked
             />
             Recruteur
           </label>
         </div>
-
-        {/* <select
-          // id="role"
-          value={this.state.value}
-          name="role"
-          onChange={this.handleChange}
-        >
-          <option value="candidate">candidat</option>
-          <option value="recruiter">recruteur</option>
-        </select> */}
         <label htmlFor="firstName">Prénom</label>
         <input
           className="input my-2"
@@ -113,4 +107,4 @@ class FormSignup extends Component {
   }
 }
 
-export default withRouter(withUser(FormSignup));
+export default FormSignup;

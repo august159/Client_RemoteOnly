@@ -1,13 +1,25 @@
 import React, { Component } from "react";
-
-import CandidateApplications from "./../components/CandidateApplications";
+import CandidateOffers from "./../components/CandidateOffers";
+// import CandidateApplications from "./../components/CandidateApplications";
 
 export class DashboardCandidate extends Component {
+  state = {
+    selectedOffer: "",
+  };
+
   render() {
+    const { selectedOffer } = this.state;
+
     return (
       <div>
         <h2>dashboard</h2>
-        <CandidateApplications />
+        <CandidateOffers
+          selectedOffer={selectedOffer}
+          handleSelection={(clickedOffer) =>
+            this.setState({ selectedOffer: clickedOffer })
+          }
+        />
+        {/* <CandidateApplications /> */}
       </div>
     );
   }

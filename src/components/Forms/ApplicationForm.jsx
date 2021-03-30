@@ -18,45 +18,18 @@ export class ApplicationForm extends Component {
   };
 
   componentDidUpdate(prevProps) {
+    const { user } = this.props.context;
     if (this.props.context.isLoading !== prevProps.context.isLoading) {
       this.setState({
         // Import candidate date if logged in
-        firstName:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.firstName
-            : "",
-        lastName:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.lastName
-            : "",
-        email:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.email
-            : "",
-        phone:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.phone
-            : "",
-        linkedIn:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.linkedIn
-            : "",
-        gitHub:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.gitHub
-            : "",
-        otherWebsite:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.otherWebsite
-            : "",
-        // resume:
-        //   this.props.context.user.role === "candidate"
-        //     ? this.props.context.user.avatar
-        //     : "",
-        additionalInfo:
-          this.props.context.user.role === "candidate"
-            ? this.props.context.user.additionalInfo
-            : "",
+        firstName: user.role === "candidate" ? user.firstName : "",
+        lastName: user.role === "candidate" ? user.lastName : "",
+        email: user.role === "candidate" ? user.email : "",
+        phone: user.role === "candidate" ? user.phone : "",
+        linkedIn: user.role === "candidate" ? user.linkedIn : "",
+        gitHub: user.role === "candidate" ? user.gitHub : "",
+        otherWebsite: user.role === "candidate" ? user.otherWebsite : "",
+        additionalInfo: user.role === "candidate" ? user.additionalInfo : "",
       });
     }
   }
@@ -104,7 +77,7 @@ export class ApplicationForm extends Component {
       .createApplication(formData)
       .then((response) => {
         console.log(response.data);
-        this.props.history.push("/offer");
+        this.props.history.push("appconfirmation");
       })
       .catch((error) => {
         console.log(error);
