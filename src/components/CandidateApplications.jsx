@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 // import DashboardCandidate from "./../pages/DashboardCandidate";
+// import UserContext from "./../components/Auth/UserContext";
 
 export class CandidateApplications extends Component {
   state = {
@@ -8,8 +9,8 @@ export class CandidateApplications extends Component {
   };
 
   componentDidMount() {
-    console.log("+++++++++++++++++++");
-    //     const id = this.props.match.params.id;
+    console.log(this.props, "++++++++++++++++++++++++");
+    const id = this.props.userId;
     apiHandler
       .getUser(id)
       .then((userInfo) => {

@@ -29,21 +29,19 @@ export class Offers extends Component {
                   <div className="media">
                     <div className="media-left">
                       <div>
-                        <p></p>
-                        <p></p>
                         <figure className="image is-48x48">
                           <img src={offer.company.logo} alt="comp-logo" />
                         </figure>
                       </div>
                       <div className="media-content">
                         <p className="title is-4">{offer.title}</p>
-                        <p className="subtitle is-6">
+                        <div className="subtitle is-6">
                           {offer.company.name} <br />
                           <p>
                             {offer.contractType} <br />
                             Il y a {offer.createdAt}
                           </p>
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </div>
