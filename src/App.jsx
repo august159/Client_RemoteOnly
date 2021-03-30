@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/application" component={Application} />
         <Route
           exact
-          path="/application/confirmation"
+          path="/appconfirmation"
           component={ApplicationConfirmation}
         />
         <Route exact path="/candidate" component={DashboardCandidate} />
