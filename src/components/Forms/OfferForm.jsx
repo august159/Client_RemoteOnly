@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
+import { withUser } from "../Auth/withUser";
 
-class ApplicationForm extends Component {
+class OfferForm extends Component {
   state = {
     title: "",
     salary: 0,
@@ -131,4 +132,4 @@ class ApplicationForm extends Component {
   }
 }
 
-export default ApplicationForm;
+export default OfferForm;

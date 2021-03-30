@@ -23,17 +23,16 @@ export class Offers extends Component {
     return (
       <div>
         <div className="mb-3">
-          <div className="card column is-8">
-            <div className="card-content">
-              <div className="media">
-                <div className="media-left">
-                  <h1>Offers</h1>
-                  {this.state.offers.map((offer) => (
-                    <Link to={`/offer/${offer._id}`} key={offer._id}>
+          <h1>Offers</h1>
+          {this.state.offers.map((offer) => (
+            <Link to={`/offer/${offer._id}`} key={offer._id}>
+              <div className="card column is-8 my-4">
+                <div className="card-content">
+                  <div className="media">
+                    <div className="media-left">
                       <div>
                         <p></p>
                         <p></p>
-
                         <figure className="image is-48x48">
                           <img src={offer.company.logo} alt="comp-logo" />
                         </figure>
@@ -48,12 +47,12 @@ export class Offers extends Component {
                           </p>
                         </p>
                       </div>
-                    </Link>
-                  ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </div>
     );

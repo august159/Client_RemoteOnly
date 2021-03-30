@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
-import ApplicationForm from "./../components/Forms/ApplicationForm";
+import ApplicationForm from "./Forms/ApplicationForm";
 
-export class Application extends Component {
+export class Applications extends Component {
   state = {
     applications: [],
   };
@@ -36,4 +36,4 @@ export class Application extends Component {
   }
 }
 
-export default Application;
+export default Applications;
