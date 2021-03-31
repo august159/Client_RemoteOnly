@@ -57,7 +57,9 @@ export class OneOffer extends Component {
                 <h4>Processus de recrutement</h4>
                 <p>{recruitmentProcess}</p>
               </div>
-              <button className="button is-info mt-2">Postuler</button>
+              <Link to={`/application/${this.props.match.params.id}`}>
+                <button className="button is-info mt-2">Postuler</button>
+              </Link>
             </div>
           </div>
         )}
