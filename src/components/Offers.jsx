@@ -21,16 +21,16 @@ export class Offers extends Component {
   render() {
     return (
       <div>
-        <div className="column is-12 ">
+        <div className="column is-narrow">
           {this.state.offers.map((offer) => (
             <Link to={`/offer/${offer._id}`} key={offer._id}>
-              <div className="card my-4">
+              <div className="card column is-8 my-4">
                 <div className="card-content">
                   <div className="media">
                     <div className="media-left">
                       <div>
                         <figure className="image is-48x48">
-                          <img src={offer.company.logo} alt="comp-logo" />
+                          <img src={offer.company.logo} alt="company-logo" />
                         </figure>
                       </div>
                       <div className="media-content">
