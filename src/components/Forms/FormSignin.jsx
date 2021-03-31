@@ -37,17 +37,24 @@ class FormSignin extends Component {
 
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+        <div className="content-wrapper">
+              <div className="columns is-left">  
+              <div className="column is-6">
+       
         <label htmlFor="email">Email</label>
         <input className="input my-2" type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Mot de passe</label>
         <input
           className="input my-2"
           type="password"
           id="password"
           name="password"
         />
-        <button className="button is-link my-2">Submit</button>
+        <button className="button is-link my-2">Connexion</button>
         <p>Vous n’avez pas de compte ? <a className="has-text-link" href="/signup"> S’inscrire ici</a></p>
+        </div>
+        </div>
+        </div>
       </form>
     );
   }

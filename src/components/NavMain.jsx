@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
+import "./../styles/custom.css";
 
 const NavMain = (props) => {
   const { context } = props;
@@ -31,15 +32,40 @@ const NavMain = (props) => {
         <div className="navbar-menu navbar-end">
           {context.isLoggedIn && (
             <React.Fragment>
-              <NavLink className="navbar-item" exact to="/candidate">
-                <h4>My Dashboard</h4>
+              <NavLink className="navbar-item" exact to="/recruiter">
+                <h4>Dashboard</h4>
               </NavLink>
+              {/* <div className="navbar-item has-dropdown is-hoverable">
+                <NavLink className="navbar-link">
+                Profile
+                </NavLink>
+
+                <div className="navbar-dropdown">
+                  <NavLink className="navbar-item"  exact to="/profile">
+                  Manage Your Account
+                  </NavLink>
+                  <div className="navbar-item">
+                    <NavLink className="navbar-link">
+                      <h4 onClick={handleLogout}>Logout</h4>
+                    </NavLink>
+                  </div>
+                </div> */}
               <NavLink className="navbar-item" to="/profile">
-                {context.user && `Bonjour ${context.user.firstName}`}
+                {/* {context.user && `Bonjour ${context.user.firstName}`} */}
+                {context.user && `Mon compte`}
               </NavLink>
-              <div className="navbar-item has-background-link-dark has-text-white">
-                <p onClick={handleLogout}>Logout</p>
-              </div>
+              <NavLink
+                className="navbar-item has-text-white"
+                exact
+                to="/application"
+              >
+                <h4
+                  className="button is-rounded is-outlined"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </h4>
+              </NavLink>
             </React.Fragment>
           )}
           {!context.isLoggedIn && (
@@ -51,11 +77,11 @@ const NavMain = (props) => {
                 <h4>S'inscrire</h4>
               </NavLink>
               <NavLink
-                className="navbar-item has-background-link-dark has-text-white"
+                className="navbar-item has-text-white"
                 exact
                 to="/application"
               >
-                <h4>Poster un job</h4>
+                <h4 className="button is-rounded is-outlined">Poster un job</h4>
               </NavLink>
             </React.Fragment>
           )}

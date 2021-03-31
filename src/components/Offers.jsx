@@ -21,10 +21,10 @@ export class Offers extends Component {
   render() {
     return (
       <div>
-        <div className="mb-3">
+        <div className="column is-12 ">
           {this.state.offers.map((offer) => (
             <Link to={`/offer/${offer._id}`} key={offer._id}>
-              <div className="card column is-8 my-4">
+              <div className="card my-4">
                 <div className="card-content">
                   <div className="media">
                     <div className="media-left">
@@ -36,10 +36,8 @@ export class Offers extends Component {
                       <div className="media-content">
                         <p className="title is-4">{offer.title}</p>
                         <div className="subtitle is-6">
-                          {offer.company.name} <br />
-                          <p>
-                            {offer.contractType} <br />
-                            Il y a {offer.createdAt}
+                          <p>{offer.company.name} • {offer.contractType} 
+                            {/* Il y a {offer.createdAt} */}
                           </p>
                         </div>
                       </div>

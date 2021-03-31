@@ -34,74 +34,82 @@ class FormSignup extends Component {
   };
 
   render() {
-    if (this.props.context.user) {
-      return <Redirect to="/" />;
-    }
+    // this doesn't let the navbar to work I uncommented it
+
+    // if (this.props.context.user) {
+    //   return <Redirect exact to="/" />;
+    // }
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="role">Vous êtes :</label>
-        <div class="control">
-          <label className="radio">
-            <input
-              type="radio"
-              value="candidate"
-              checked={this.state.role === "candidate"}
-              className="mr-1"
-              name="role"
-              onChange={this.handleChange}
-            />
-            Candidat
-          </label>
-          <label className="radio">
-            <input
-              type="radio"
-              className="mr-1"
-              value="recruiter"
-              name="role"
-              checked={this.state.role === "recruiter"}
-              onChange={this.handleChange}
-            />
-            Recruteur
-          </label>
+        <div className="content-wrapper">
+          <div className="columns is-left">
+            <div className="column is-6">
+              <label htmlFor="role">Vous êtes :</label>
+              <div class="control">
+                <label className="radio">
+                  <input
+                    type="radio"
+                    value="candidate"
+                    checked={this.state.role === "candidate"}
+                    className="mr-1"
+                    name="role"
+                    onChange={this.handleChange}
+                  />
+                  Candidat
+                </label>
+                <label className="radio">
+                  <input
+                    type="radio"
+                    className="mr-1"
+                    value="recruiter"
+                    name="role"
+                    checked={this.state.role === "recruiter"}
+                    onChange={this.handleChange}
+                  />
+                  Recruteur
+                </label>
+              </div>
+              <label htmlFor="firstName">Prénom</label>
+              <input
+                className="input my-2"
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="lastName">Nom de famille</label>
+              <input
+                className="input my-2"
+                onChange={this.handleChange}
+                value={this.state.lastName}
+                type="text"
+                id="lastName"
+                name="lastName"
+              />
+              <label htmlFor="email">Email</label>
+              <input
+                className="input my-2"
+                onChange={this.handleChange}
+                value={this.state.email}
+                type="email"
+                id="email"
+                name="email"
+              />
+              <label htmlFor="password">Password</label>
+              <input
+                className="input my-2"
+                onChange={this.handleChange}
+                value={this.state.password}
+                type="password"
+                id="password"
+                name="password"
+              />
+              <button className="button is-link">Suivant</button>
+            </div>
+          </div>
         </div>
-        <label htmlFor="firstName">Prénom</label>
-        <input
-          className="input my-2"
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={this.state.firstName}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="lastName">Nom de famille</label>
-        <input
-          className="input my-2"
-          onChange={this.handleChange}
-          value={this.state.lastName}
-          type="text"
-          id="lastName"
-          name="lastName"
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          className="input my-2"
-          onChange={this.handleChange}
-          value={this.state.email}
-          type="email"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          className="input my-2"
-          onChange={this.handleChange}
-          value={this.state.password}
-          type="password"
-          id="password"
-          name="password"
-        />
-        <button className="button is-link">Suivant</button>
       </form>
     );
   }
