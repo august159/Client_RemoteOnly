@@ -12,11 +12,14 @@ const NavMain = (props) => {
       .logout()
       .then(() => {
         context.removeUser();
+        console.log(`context after logout`, context);
       })
       .catch((error) => {
         console.log(error);
       });
   }
+
+  console.log(`context`, context);
 
   return (
     <nav className="NavMain pr-4">
@@ -32,7 +35,15 @@ const NavMain = (props) => {
         <div className="navbar-menu navbar-end">
           {context.isLoggedIn && (
             <React.Fragment>
-              <NavLink className="navbar-item" exact to="/recruiter">
+              <NavLink
+                className="navbar-item"
+                exact
+                to={
+                  context.user.role === "candidate"
+                    ? "/candidate"
+                    : "/recruiter"
+                }
+              >
                 <h4>Dashboard</h4>
               </NavLink>
               {/* <div className="navbar-item has-dropdown is-hoverable">
