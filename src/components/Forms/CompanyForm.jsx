@@ -5,13 +5,13 @@ import { withUser } from "../Auth/withUser";
 
 export class CompanyForm extends Component {
   state = {
-    name: "",
+    name: "Ironhack",
     logo: "",
-    city: "",
-    size: "",
-    industry: "",
-    website: "",
-    description: "",
+    city: "Madrid ",
+    size: "200",
+    industry: "Enseignement",
+    website: "www.ironhack.com",
+    description: "Ironhack, c'est vraiment bien",
   };
 
   handleChange = (event) => {
@@ -43,12 +43,14 @@ export class CompanyForm extends Component {
     formData.append("industry", industry);
     formData.append("website", website);
     formData.append("description", description);
-    console.log(`formData`, formData);
+    this.props.context.user &&
+      formData.append("user", this.props.context.user._id);
+    console.log(`formData`, ...formData);
 
     service
       .createCompany(formData)
       .then((response) => {
-        console.log(response.data);
+        console.log(`response`, response);
         this.props.history.push("/company"); // Redirection to company dashboard
       })
       .catch((error) => {

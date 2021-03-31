@@ -10,7 +10,7 @@ export class CandidateOffers extends Component {
 
   componentDidMount() {
     apiHandler
-      .getAppsFromLoggedInUser()
+      .getAppsFromLoggedInCandidate()
       .then((userInfo) => {
         console.log(`userInfo.applications`, userInfo);
         this.setState({ applications: userInfo.applications });

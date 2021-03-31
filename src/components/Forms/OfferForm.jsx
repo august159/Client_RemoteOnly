@@ -39,8 +39,6 @@ class OfferForm extends Component {
       recruitmentProcess,
     } = this.state;
 
-    console.log(`this.state`, this.state);
-
     service
       .createOffer({
         title,

@@ -12,11 +12,7 @@ const UserProfile = (props) => {
         <div className="media">
           <div className="media-left">
             <figure className="image is-200x200">
-              <img
-                className="is-rounded"
-                src={user.avatar}
-                alt="Placeholder image"
-              />
+              <img className="is-rounded" src={user.avatar} alt="Placeholder" />
             </figure>
           </div>
           <div className="media-content">

@@ -53,9 +53,16 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getAppsFromLoggedInUser() {
+  getAppsFromLoggedInCandidate() {
     return service
-      .get("api/user/me")
+      .get("api/user/candidate")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getAppsFromLoggedInRecruiter() {
+    return service
+      .get("api/user/recruiter")
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -135,7 +142,7 @@ const apiHandler = {
   createCompany(companyInfo) {
     return service
       .post("api/company", companyInfo)
-      .then((res) => res.data)
+      .then((res) => res)
       .catch(errorHandler);
   },
 

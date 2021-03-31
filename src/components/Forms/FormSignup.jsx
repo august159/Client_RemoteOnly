@@ -22,10 +22,10 @@ class FormSignup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`this.state`, this.state);
     service
       .signup(this.state)
       .then((data) => {
+        console.log(`data`, data);
         this.props.context.setUser(data); //? Defines the values in currentUser ?
       })
       .catch((error) => {
@@ -41,7 +41,7 @@ class FormSignup extends Component {
     // }
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} encType="multipart/form-data">
         <div className="content-wrapper">
           <div className="columns is-left">
             <div className="column is-6">
@@ -115,4 +115,4 @@ class FormSignup extends Component {
   }
 }
 
-export default FormSignup;
+export default withUser(FormSignup);

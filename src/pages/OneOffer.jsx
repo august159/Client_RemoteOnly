@@ -36,21 +36,6 @@ export class OneOffer extends Component {
           <div className="container">
             <div className="box">
               <h2 className="title is-6 mt-2">Description du poste</h2>
-
-<<<<<<< HEAD
-          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
-            {this.state.offer.jobDescription}
-          </p>
-          <h2 className="title is-6 mt-2">Profil recherché</h2>
-          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
-            {this.state.offer.profileDescription}
-          </p>
-          <Link to={`/application/${this.props.match.params.id}`}>
-            <button className="button is-info mt-2">Postuler</button>
-          </Link>
-        </div>
-      </div>
-=======
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
                 {jobDescription}
               </p>
@@ -76,7 +61,6 @@ export class OneOffer extends Component {
           </div>
         )}
       </>
->>>>>>> fed8abd679a42f0b2d18c2136fa9147ddf94e19f
     );
   }
 }
