@@ -23,6 +23,7 @@ class DashboardRecruiter extends React.Component {
 
   state = {
     offers: [],
+    applications: [],
   };
 
   componentDidMount() {
@@ -35,6 +36,16 @@ class DashboardRecruiter extends React.Component {
         console.log(error);
       });
   }
+  // componentDidMount() {
+  //   apiHandler
+  //     .getApplication(this.state)
+  //     .then((offers) => {
+  //       this.setState({ offers });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   render() {
     // console.log(`this.state`, this.state);
@@ -77,13 +88,22 @@ class DashboardRecruiter extends React.Component {
                       </div>
                       <hr className="solid" />
                     </div>
-                    I'm in a box.
+                    <div>
+                    {this.state.applications.map((application) => (
+                      
+                        <div to={`/application/${application._id}`} key={application._id}>
+                        <p>{application.firstName}</p>
+                        <p>{application.lastName}</p>
+                        </div>
+                    ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        
       </section>
     );
   }
