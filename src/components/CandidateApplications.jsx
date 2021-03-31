@@ -1,23 +1,22 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 // import DashboardCandidate from "./../pages/DashboardCandidate";
-import { withUser } from "./../components/Auth/withUser";
+// import { withUser } from "./../components/Auth/withUser";
 
 export class CandidateApplications extends Component {
   state = {
-    offerId: "",
+    appInfo: null,
   };
 
   componentDidMount() {
-    const id = this.props.context.user._id;
-    console.log("id :>> ", id);
+    const id = this.props.applicationId;
+    console.log(`id from context`, id);
 
     apiHandler
-      .getUser(id)
-      .then((userInfo) => {
-        console.log("userInfo :>> ", userInfo);
-        const applications = userInfo.applications;
-        console.log("applications :>> ", applications);
+      .getApplication(id)
+      .then((appInfo) => {
+        console.log(`id in API`, id);
+        this.setState({ appInfo });
       })
       .catch((error) => {
         console.log(error);
@@ -25,15 +24,63 @@ export class CandidateApplications extends Component {
   }
 
   render() {
-    console.log(this.applications);
+    const {
+      firstName,
+      lastName,
+      linkedIn,
+      gitHub,
+      otherWebsite,
+      resume,
+      additionalInfo,
+      offer,
+    } = this.state.appInfo ? this.state.appInfo : {};
+    console.log(`this.state.appInfo`, this.state.appInfo);
+    console.log(`offer`, offer);
     return (
       <div>
-        {/* {this.applications.map((application) => {
-          <p>{application}</p>;
-        })} */}
+        {this.state.appInfo && (
+          <>
+            <p>{this.props.applicationId}</p>
+            <div className="box offerDetails">
+              <h1>{offer.title}</h1>
+              <p>{offer.fieldWork}</p>
+              <p>{offer.contractType}</p>
+              <p>Rémunération: {offer.salary} €/an</p>
+              <p>Date de début: {offer.startingDate}</p>
+              <h4>Description de l'offre</h4>
+              <p>{offer.jobDescription}</p>
+              <h4>Profil recherché</h4>
+              <p>{offer.profileDescription}</p>
+              <h4>Processus de recrutement</h4>
+              <p>{offer.recruitmentProcess}</p>
+            </div>
+            <div className="box applicationDetails">
+              <h1 className="title is-4">Ma candidature</h1>
+              <h2 className="title is-4">
+                {firstName} {lastName}
+              </h2>
+              <h4 className="title is-4">Portfolio:</h4>
+              <ul>
+                {linkedIn && <li>LinkedIn: {linkedIn}</li>}
+                {gitHub && <li>GitHub: {gitHub}</li>}
+                {otherWebsite && <li>Other website: {otherWebsite}</li>}
+              </ul>
+              <h4 className="title is-4">C.V.: </h4>
+              <embed
+                src={resume}
+                width={800}
+                height={500}
+                type="application/pdf"
+              />
+              <h4 className="title is-4">Informations supplémentaires:</h4>
+              <p>{additionalInfo}</p>
+            </div>
+            {/* <button className="button is-info">Modifier ma candidature</button> */}
+          </>
+        )}
       </div>
     );
   }
 }
 
-export default withUser(CandidateApplications);
+export default CandidateApplications;
