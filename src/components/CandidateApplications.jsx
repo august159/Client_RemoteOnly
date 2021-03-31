@@ -10,12 +10,10 @@ export class CandidateApplications extends Component {
 
   componentDidMount() {
     const id = this.props.applicationId;
-    console.log(`id from context`, id);
 
     apiHandler
       .getApplication(id)
       .then((appInfo) => {
-        console.log(`id in API`, id);
         this.setState({ appInfo });
       })
       .catch((error) => {
@@ -40,7 +38,6 @@ export class CandidateApplications extends Component {
       <div>
         {this.state.appInfo && (
           <>
-            <p>{this.props.applicationId}</p>
             <div className="box offerDetails">
               <h1>{offer.title}</h1>
               <p>{offer.fieldWork}</p>
