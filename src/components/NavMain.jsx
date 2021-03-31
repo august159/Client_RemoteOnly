@@ -54,11 +54,7 @@ const NavMain = (props) => {
                 {/* {context.user && `Bonjour ${context.user.firstName}`} */}
                 {context.user && `Mon compte`}
               </NavLink>
-              <NavLink
-                className="navbar-item has-text-white"
-                exact
-                to="/application"
-              >
+              <NavLink className="navbar-item has-text-white" exact to="/">
                 <h4
                   className="button is-rounded is-outlined"
                   onClick={handleLogout}
