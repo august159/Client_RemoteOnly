@@ -20,18 +20,14 @@ export class OneOffer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="box">
-          <h2 className="title is-4">Description du poste</h2>
+          <h2 className="title is-6 mt-2">Description du poste</h2>
 
-          <p>{this.state.offer.jobDescription}</p>
-        </div>
-        <div className="box">
-          <h2 className="title is-4">Profil recherché</h2>
-          <p>{this.state.offer.profileDescription}</p>
-        </div>
-        <div className=" has-text-centered">
-          <button className="button is-info">Postuler</button>
+          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">{this.state.offer.jobDescription}</p>
+          <h2 className="title is-6 mt-2">Profil recherché</h2>
+          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">{this.state.offer.profileDescription}</p>
+          <button className="button is-info mt-2">Postuler</button>
         </div>
       </div>
     );
