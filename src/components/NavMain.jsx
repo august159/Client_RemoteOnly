@@ -23,7 +23,7 @@ const NavMain = (props) => {
 
   return (
     <nav className="NavMain pr-4">
-      <div className="navbar is-transparent">
+      <div className="navbar is-transparent  is-active">
         <div className="navbar-brand">
           <NavLink exact to="/">
             <img

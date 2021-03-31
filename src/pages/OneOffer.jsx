@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
+import { Link } from "react-router-dom";
 
 export class OneOffer extends Component {
   state = {
