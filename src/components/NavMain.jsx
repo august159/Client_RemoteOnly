@@ -86,7 +86,7 @@ const NavMain = (props) => {
               <NavLink
                 className="navbar-item has-text-white"
                 exact
-                to="/application"
+                to="/offer"
               >
                 <h4 className="button is-rounded is-outlined">Poster un job</h4>
               </NavLink>

@@ -24,7 +24,6 @@ export class DashboardCandidate extends Component {
             <div className="hero-body ">
             
               <div className="container">
-              <h2 className="title is-4">Dashboard</h2>
                 <div className="columns box-full ">
                   <div className="column is-one-quarter">
                     <div className="box">
