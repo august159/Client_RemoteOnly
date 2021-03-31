@@ -24,13 +24,6 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getConnectedUserInfo() {
-    return service
-      .get(`api/user/me`)
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
-
   signin(userInfo) {
     return service
       .post("/api/auth/signin", userInfo)
@@ -56,6 +49,13 @@ const apiHandler = {
   getUsers() {
     return service
       .get("api/user")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getAppsFromLoggedInUser() {
+    return service
+      .get("api/user/me")
       .then((res) => res.data)
       .catch(errorHandler);
   },

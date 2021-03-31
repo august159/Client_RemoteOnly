@@ -10,10 +10,11 @@ export class CandidateOffers extends Component {
 
   componentDidMount() {
     apiHandler
-      .getConnectedUserInfo()
+      .getAppsFromLoggedInUser()
       .then((userInfo) => {
-        //   const applications = userInfo.applications;
+        console.log(`userInfo.applications`, userInfo);
         this.setState({ applications: userInfo.applications });
+        console.log(`userInfo.applications`, userInfo);
       })
       .catch((error) => {
         console.log(error);
@@ -28,20 +29,20 @@ export class CandidateOffers extends Component {
           <>
             {this.state.applications.map((application) => (
               <div>
-                <div>
-                  <img src={application.offer.company.logo} alt="" />
+                <div
+                  onClick={() => {
+                    handleSelection(application._id);
+                  }}
+                >
+                  <img
+                    src={application.offer.company.logo}
+                    alt={application.offer.company.name}
+                  />
                   <p>Name: {application.offer.company.name}</p>
                   <p>Intitulé du poste: {application.offer.title}</p>
                   <p>Type de contrat: {application.offer.contractType}</p>
                   <p>{!application.offer.isActive && `Offre pourvue`}</p>
                 </div>
-                <button
-                  onClick={() => {
-                    handleSelection(application._id);
-                  }}
-                >
-                  Select
-                </button>
               </div>
             ))}
           </>

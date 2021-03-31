@@ -24,50 +24,46 @@ class Home extends React.Component {
           </div>
         </section>
 
-        
         <section className="hero has-background-white is-small py-4">
           <div className="hero-body">
-            <div className="container"> 
-            <div class="is-divider"></div>
+            <div className="container">
+              <div className="is-divider"></div>
 
-            
-          <div className="columns pl-8 has-text-centered">
-            <div className="column is-2 column ">
-              <h2>🎨</h2>
-              <h3 className="has-text-weight-bold">Design</h3>
-            </div>
-            <div className="column is-2">
-              <h2>💻</h2>
-              <h3 className="has-text-weight-bold"> Programmation</h3>
-            </div>
-            <div className="column is-2">
-              <h2>🔨</h2>
-              <h3 className="has-text-weight-bold">Produit</h3>
-            </div>
-            <div className="column is-2">
-              <h2>🎧</h2>
-              <h3 className="has-text-weight-bold">Support Client</h3>
-            </div>
-            <div className="column is-2">
-              <h2>📈</h2>
-              <h3 className="has-text-weight-bold">Sales et Marketing</h3>
-            </div>
-            <div className="column is-2">
-              <h2>⚙️</h2>
-              <h3 className="has-text-weight-bold">DevOps</h3>
-            </div>
-            </div>
+              <div className="columns pl-8 has-text-centered">
+                <div className="column is-2 column ">
+                  <h2>🎨</h2>
+                  <h3 className="has-text-weight-bold">Design</h3>
+                </div>
+                <div className="column is-2">
+                  <h2>💻</h2>
+                  <h3 className="has-text-weight-bold"> Programmation</h3>
+                </div>
+                <div className="column is-2">
+                  <h2>🔨</h2>
+                  <h3 className="has-text-weight-bold">Produit</h3>
+                </div>
+                <div className="column is-2">
+                  <h2>🎧</h2>
+                  <h3 className="has-text-weight-bold">Support Client</h3>
+                </div>
+                <div className="column is-2">
+                  <h2>📈</h2>
+                  <h3 className="has-text-weight-bold">Sales et Marketing</h3>
+                </div>
+                <div className="column is-2">
+                  <h2>⚙️</h2>
+                  <h3 className="has-text-weight-bold">DevOps</h3>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="hero has-background-white-ter">
           <div className="hero-body">
-            
             <div className="content-wrapper">
-              <div className="columns is-centered">              
-              
-              <Offers />
+              <div className="columns is-centered">
+                <Offers />
               </div>
             </div>
           </div>
