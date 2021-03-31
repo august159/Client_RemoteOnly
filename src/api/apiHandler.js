@@ -24,6 +24,13 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+  getConnectedUserInfo() {
+    return service
+      .get(`api/user/me`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   signin(userInfo) {
     return service
       .post("/api/auth/signin", userInfo)

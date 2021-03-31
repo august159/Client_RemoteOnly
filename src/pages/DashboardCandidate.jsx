@@ -1,29 +1,31 @@
 import React, { Component } from "react";
 import CandidateOffers from "./../components/CandidateOffers";
-// import CandidateApplications from "./../components/CandidateApplications";
+import CandidateApplications from "./../components/CandidateApplications";
 
 export class DashboardCandidate extends Component {
   state = {
-    selectedOffer: "",
+    selectedOfferAppId: null,
   };
 
-  handleSelection = (event) => {
-    console.log(`event.target`, event.target);
-    this.setState({ selectedOffer: event.target.value });
+  handleSelection = (appId) => {
+    this.setState({ selectedOfferAppId: appId });
   };
 
   render() {
-    const { selectedOffer } = this.state;
+    const { selectedOfferAppId } = this.state;
 
     return (
       <div>
         <h2>dashboard</h2>
         <CandidateOffers
-          value={selectedOffer}
+          value={selectedOfferAppId}
           handleSelection={this.handleSelection}
         />
-        <p>Selected offer_id: {selectedOffer}</p>
-        {/* <CandidateApplications /> */}
+        <p>applicationId: {selectedOfferAppId}</p>
+        {this.state.selectedOfferAppId && (
+          <CandidateApplications applicationId={selectedOfferAppId} />
+        )}
+        {/* <CandidateApplications applicationId={"606304e3f64f3733d7e849e4"} /> */}
       </div>
     );
   }
