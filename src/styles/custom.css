@@ -1,8 +1,23 @@
-.hero{
-    background: url("https://res.cloudinary.com/adgranmous/image/upload/v1617012980/Background_wkr0pt.png");
-    background-size: cover;
+#hero {
+  background: url("https://res.cloudinary.com/adgranmous/image/upload/v1617012980/Background_wkr0pt.png");
+  background-size: cover;
+  position: relative;
 }
 
 hr.solid {
-    border-top: 3px solid #bbb;
-  }
+  border-top: 10px solid #bbb;
+}
+
+.home-btn {
+  margin: auto;
+  display: block;
+}
+
+.center-ads {
+  margin: auto;
+  display: block;
+}
+
+.dashboard_offer:hover {
+  background-color: #f5f5f5;
+}

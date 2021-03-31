@@ -6,21 +6,33 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <section className="hero is-large">
-          <div className="hero-body is-half">
-            <h2 className="is-size-1 has-text-white has-text-centered">
-              Travailler de France, travailler à domicile, travailler de partout
-            </h2>
-            <p className="is-size-5 has-text-white has-text-centered">
-              Les meilleurs emplois dans le tech et autres pour ceux qui
-              souhaitent démarrer leur carrière full remote
-            </p>
-            <button className="button is-primary">Poster un job</button>
+        <section className="hero is-fullheight is-primary is-bold" id="hero">
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <h2 className="is-size-1 has-text-white has-text-centered">
+                Travailler de France, travailler à domicile, travailler de
+                partout
+              </h2>
+              <p className="is-size-5 has-text-white has-text-centered">
+                Les meilleurs emplois dans le tech et autres pour ceux qui
+                souhaitent démarrer leur carrière full remote
+              </p>
+              {/* <Link > */}
+              <button className="button is-primary mt-4">Poster un job</button>
+              {/* </Link> */}
+            </div>
           </div>
         </section>
-        <section className="py-4">
-          <div className="columns pl-8">
-            <div className="column is-2 column is-half">
+
+        
+        <section className="hero has-background-white is-small py-4">
+          <div className="hero-body">
+            <div className="container"> 
+            <div class="is-divider"></div>
+
+            
+          <div className="columns pl-8 has-text-centered">
+            <div className="column is-2 column ">
               <h2>🎨</h2>
               <h3 className="has-text-weight-bold">Design</h3>
             </div>
@@ -44,12 +56,21 @@ class Home extends React.Component {
               <h2>⚙️</h2>
               <h3 className="has-text-weight-bold">DevOps</h3>
             </div>
+            </div>
+            </div>
           </div>
         </section>
 
-        <section className="py-3">
-          <h3 className="is-size-3 has-text-centered">Aujourd'hui</h3>
-          <Offers />
+        <section className="hero has-background-white-ter">
+          <div className="hero-body">
+            
+            <div className="content-wrapper">
+              <div className="columns is-centered">              
+              
+              <Offers />
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     );
