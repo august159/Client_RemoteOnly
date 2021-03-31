@@ -18,10 +18,8 @@ export class CompanyListOffers extends Component {
   }
 
   render() {
-    if (this.state.company !== []) {
-      console.log("++++++++++", this.state.company);
-      return <div>{/* <p>{this.state.company.offers}</p> */}</div>;
-    }
+    console.log("++++++++++", this.state.company);
+    return <div>{/* <p>{this.state.company.offers}</p> */}</div>;
   }
 }
 

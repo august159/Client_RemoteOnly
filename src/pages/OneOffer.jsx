@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
+import { Link } from "react-router-dom";
 
 export class OneOffer extends Component {
   state = {
@@ -24,10 +25,16 @@ export class OneOffer extends Component {
         <div className="box">
           <h2 className="title is-6 mt-2">Description du poste</h2>
 
-          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">{this.state.offer.jobDescription}</p>
+          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
+            {this.state.offer.jobDescription}
+          </p>
           <h2 className="title is-6 mt-2">Profil recherché</h2>
-          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">{this.state.offer.profileDescription}</p>
-          <button className="button is-info mt-2">Postuler</button>
+          <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+            {this.state.offer.profileDescription}
+          </p>
+          <Link to={`/application/${this.props.match.params.id}`}>
+            <button className="button is-info mt-2">Postuler</button>
+          </Link>
         </div>
       </div>
     );

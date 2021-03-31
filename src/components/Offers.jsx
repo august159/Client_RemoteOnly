@@ -36,7 +36,8 @@ export class Offers extends Component {
                       <div className="media-content">
                         <p className="title is-4">{offer.title}</p>
                         <div className="subtitle is-6">
-                          <p>{offer.company.name} • {offer.contractType} 
+                          <p>
+                            {offer.company.name} • {offer.contractType}
                             {/* Il y a {offer.createdAt} */}
                           </p>
                         </div>
