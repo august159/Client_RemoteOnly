@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withUser } from "./../components/Auth/withUser";
 import apiHandler from "./../api/apiHandler";
+import { Link } from "react-router-dom";
 
 export class CandidateOffers extends Component {
   state = {
@@ -25,21 +26,26 @@ export class CandidateOffers extends Component {
   }
 
   render() {
-    const { handleSelection, selectedOffer } = this.props;
+    const { value, handleSelection } = this.props;
     return (
       <div>
         {this.state.applications.map((application) => (
-          <div
+          <Link
             key={application._id}
-            onClick={(event) => handleSelection(event.target.value)}
-            value={selectedOffer}
+            value={application.offer._id}
+            onClick={handleSelection}
           >
-            <img src={application.offer.company.logo} />
-            <p>Name: {application.offer.company.name}</p>
-            <p>Intitulé du poste: {application.offer.title}</p>
-            <p>Type de contrat: {application.offer.contractType}</p>
-            <p>{!application.offer.isActive && `Offre pourvue`}</p>
-          </div>
+            <div>
+              <img src={application.offer.company.logo} />
+              <p>Name: {application.offer.company.name}</p>
+              <p>Intitulé du poste: {application.offer.title}</p>
+              <p>Type de contrat: {application.offer.contractType}</p>
+              <p>{!application.offer.isActive && `Offre pourvue`}</p>
+            </div>
+            <button value={application.offer._id} onClick={handleSelection}>
+              Select
+            </button>
+          </Link>
         ))}
       </div>
     );

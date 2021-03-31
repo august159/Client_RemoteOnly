@@ -7,6 +7,11 @@ export class DashboardCandidate extends Component {
     selectedOffer: "",
   };
 
+  handleSelection = (event) => {
+    console.log(`event.target`, event.target);
+    this.setState({ selectedOffer: event.target.value });
+  };
+
   render() {
     const { selectedOffer } = this.state;
 
@@ -14,11 +19,10 @@ export class DashboardCandidate extends Component {
       <div>
         <h2>dashboard</h2>
         <CandidateOffers
-          selectedOffer={selectedOffer}
-          handleSelection={(clickedOffer) =>
-            this.setState({ selectedOffer: clickedOffer })
-          }
+          value={selectedOffer}
+          handleSelection={this.handleSelection}
         />
+        <p>Selected offer_id: {selectedOffer}</p>
         {/* <CandidateApplications /> */}
       </div>
     );
