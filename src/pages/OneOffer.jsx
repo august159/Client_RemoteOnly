@@ -20,6 +20,10 @@ export class OneOffer extends Component {
   }
 
   render() {
+    console.log(
+      `this.state.offer.searchedOffer`,
+      this.state.offer.searchedOffer
+    );
     const {
       title,
       fieldWork,
@@ -29,38 +33,65 @@ export class OneOffer extends Component {
       jobDescription,
       profileDescription,
       recruitmentProcess,
+      company,
     } = this.state.offer.searchedOffer ? this.state.offer.searchedOffer : {};
+    // console.log(`company.title`, company.title)
+
     return (
       <>
         {this.state.offer.searchedOffer && (
           <div className="container">
-            <div className="box">
-              <h2 className="title is-6 mt-2">Description du poste</h2>
+            <div className="box mt-6">
+              {/* <div className=" my-2"> */}
+
+              <img className="center_element my-2" src={company.logo} alt="company-logo" id="img" />
+              <h2 className=" has-text-centered  title is-4">
+                {" "}
+                Postuler pour <strong>{title}</strong> chez{" "}
+                <strong>{company.name}</strong>
+              </h2>
+
+              <h2 className="title is-6 my-2">Description du poste</h2>
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
                 {jobDescription}
               </p>
-              <h2 className="title is-6 mt-2">Profil recherché</h2>
+              <h2 className="title is-6 my-2">Profil recherché</h2>
+
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
                 {profileDescription}
               </p>
-              <div className="box offerDetails">
-                <h1>{title}</h1>
-                <p>{fieldWork}</p>
-                <p>{contractType}</p>
-                <p>Rémunération: {salary} €/an</p>
-                <p>Date de début: {startingDate}</p>
-                <h4>Description de l'offre</h4>
-                <p>{jobDescription}</p>
-                <h4>Profil recherché</h4>
-                <p>{profileDescription}</p>
-                <h4>Processus de recrutement</h4>
-                <p>{recruitmentProcess}</p>
-              </div>
-              <Link to={`/application/${this.props.match.params.id}`}>
-                <button className="button is-info mt-2">Postuler</button>
-              </Link>
+              <h2 className="title is-6 my-2">Rémunération</h2>
+
+              <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                {salary} €/an
+              </p>
+
+              <h2 className="title is-6 my-2">Type de contrat</h2>
+
+              <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                {contractType}
+              </p>
+
+              <h2 className="title is-6 my-2">Date de début</h2>
+              <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                {startingDate}
+              </p>
+
+              <h2 className="title is-6 my-2">Description de l'offre</h2>
+              <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                {jobDescription}
+              </p>
+
+              <h2 className="title is-6 my-2">Processus de recrutement</h2>
+              <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                {recruitmentProcess}
+              </p>
             </div>
+            <Link to={`/application/${this.props.match.params.id}`}>
+              <button className="button is-info my-10">Postuler</button>
+            </Link>
           </div>
+          // </div>
         )}
       </>
     );
