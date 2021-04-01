@@ -6,17 +6,41 @@ import { withRouter } from "react-router-dom";
 
 export class ProfileUpdate extends Component {
   state = {
-    avatar: this.props.context.user.avatar,
-    firstName: this.props.context.user.firstName,
-    lastName: this.props.context.user.lastName,
-    email: this.props.context.user.email,
-    phone: this.props.context.user.phone,
-    linkedIn: this.props.context.user.linkedIn,
-    gitHub: this.props.context.user.gitHub,
-    otherWebsite: this.props.context.user.otherWebsite,
-    resume: this.props.context.user.resume,
-    additionalInfo: this.props.context.user.additionalInfo,
+    // Import candidate date if logged in
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    linkedIn: "",
+    gitHub: "",
+    otherWebsite: "",
+    resume: "",
+    additionalInfo: "",
   };
+
+  componentDidMount() {
+    service
+      .getUser(this.props.context.user._id)
+      .then((response) => {
+        console.log(`response`, response);
+        this.setState(response.searchedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  // {
+  //   avatar: this.props.context.user.avatar,
+  //   firstName: this.props.context.user.firstName,
+  //   lastName: this.props.context.user.lastName,
+  //   email: this.props.context.user.email,
+  //   phone: this.props.context.user.phone,
+  //   linkedIn: this.props.context.user.linkedIn,
+  //   gitHub: this.props.context.user.gitHub,
+  //   otherWebsite: this.props.context.user.otherWebsite,
+  //   resume: this.props.context.user.resume,
+  //   additionalInfo: this.props.context.user.additionalInfo,
+  // };
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -58,7 +82,7 @@ export class ProfileUpdate extends Component {
     service
       .updateUser(id, formData)
       .then((response) => {
-        console.log(response.data);
+        this.setState(response);
         this.props.history.push("/profile");
       })
       .catch((error) => {
@@ -67,10 +91,7 @@ export class ProfileUpdate extends Component {
   };
 
   render() {
-    console.log(
-      `this.props.context.user.resume`,
-      this.props.context.user.resume
-    );
+    console.log(`this.state`, this.state);
     return (
       <div className="content-wrapper">
         <div className="columns is-centered">

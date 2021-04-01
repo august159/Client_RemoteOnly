@@ -17,6 +17,17 @@ export class ApplicationForm extends Component {
     additionalInfo: "",
   };
 
+  componentDidMount() {
+    service
+      .getUser(this.props.context.user._id)
+      .then((response) => {
+        this.setState(response.searchedUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   componentDidUpdate(prevProps) {
     const { user } = this.props.context;
     if (this.props.context.isLoading !== prevProps.context.isLoading) {
