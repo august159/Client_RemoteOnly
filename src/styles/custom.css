@@ -39,7 +39,6 @@ body {
 .center_element {
   margin: auto;
   width: 50%;
-<<<<<<< HEAD
   position: relative;
 }
 
@@ -49,6 +48,3 @@ body {
   overflow-wrap: break-word;
   resize: none;
 }
-=======
-}
->>>>>>> 62a1b8bbdffbf3663690c3f58b5621fca20e86f7
