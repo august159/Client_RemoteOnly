@@ -16,6 +16,7 @@ export class ApplicationForm extends Component {
     resume: "",
     additionalInfo: "",
   };
+
   componentDidUpdate(prevProps) {
     const { user } = this.props.context;
     if (this.props.context.isLoading !== prevProps.context.isLoading) {
@@ -32,6 +33,7 @@ export class ApplicationForm extends Component {
       });
     }
   }
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -103,7 +105,7 @@ export class ApplicationForm extends Component {
               <br />
               <br />
               <label htmlFor="lastName" className="label">
-                NOM*
+                Nom*
               </label>
               <input
                 value={this.state.lastName}
