@@ -95,10 +95,14 @@ export class CompanyApplications extends Component {
             ))}
           </>
         ) : (
-          <h1>
-            Aucune candidature à ce stade ! Revenez plus tard ou pensez à
-            modifier votre annonce pour la rendre plus attractive
-          </h1>
+          <div className="column  is-three-quarter">
+            <div className="box">
+              <h1>
+                Aucune candidature à ce stade ! Revenez plus tard ou pensez à
+                modifier votre annonce pour la rendre plus attractive
+              </h1>
+            </div>
+          </div>
         )}
       </div>
     );
