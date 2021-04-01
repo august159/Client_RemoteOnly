@@ -24,30 +24,43 @@ class CompanyOffers extends Component {
       <div>
         {this.state.offers && (
           <div className="media">
-            {this.state.offers.map((offer) => (
-              <div key={offer._id}>
-                <div className="clicked"
-                  onClick={() => {
-                    handleSelection(offer._id);
-                  }}
-                >
-                  <div class="media-left">
-                    <figure class="image is-64x64 mb-2">
-                      <img src={offer.company.logo} alt={offer.company.name} />
-                    </figure>
-                  </div>
-                
+            <div className="column  is-three-quarter">
+              {this.state.offers.map((offer) => (
+                <div key={offer._id}>
+                  <div
+                    className="clicked"
+                    onClick={() => {
+                      handleSelection(offer._id);
+                    }}
+                  >
+                    <div className="box">
+                      <div class="media-left">
+                        <figure class="image is-64x64 mb-2">
+                          <img
+                            src={offer.company.logo}
+                            alt={offer.company.name}
+                          />
+                        </figure>
+                      </div>
 
-                <div class="media-content">
-                  <div class="content">
-                    <p><strong>Poste</strong> {offer.title}</p>
-                    <p><strong>Type de contrat: </strong>{offer.contractType}</p>
-                    <p>{!offer.isActive && `Offre pourvue`}</p>
+                      <div class="media-content">
+                        <div class="content">
+                          <p>
+                            <strong>Poste</strong> {offer.title}
+                          </p>
+                          <p>
+                            <strong>Type de contrat: </strong>
+                            {offer.contractType}
+                          </p>
+                          <p>{!offer.isActive && `Offre pourvue`}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <hr className="solid"></hr>
                 </div>
-              </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </div>

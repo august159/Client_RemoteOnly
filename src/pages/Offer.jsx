@@ -7,6 +7,7 @@ const OfferCreation = (props) => {
     <div>
       
       
+      
           <OfferForm />
 
     </div>

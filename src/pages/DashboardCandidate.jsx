@@ -16,8 +16,6 @@ export class DashboardCandidate extends Component {
 
     return (
       <div>
-
-        
         <section className="hero has-background-white-ter pt-0">
           <div className="is-fullheight ">
             <div className="hero-body ">
@@ -29,15 +27,9 @@ export class DashboardCandidate extends Component {
                       <CandidateOffers handleSelection={this.handleSelection} />
                     </div>
                   </div>
-                  <div className="column  is-three-quarter">
-                    <div className="box">
-                      {this.state.selectedOfferAppId && (
-                        <CandidateApplications
-                          applicationId={selectedOfferAppId}
-                        />
-                      )}
-                    </div>
-                  </div>
+                  {this.state.selectedOfferAppId && (
+                    <CandidateApplications applicationId={selectedOfferAppId} />
+                  )}
                 </div>
               </div>
             </div>

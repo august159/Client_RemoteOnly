@@ -22,17 +22,15 @@ hr.solid {
   background-color: #f5f5f5;
 }
 
-
 #img {
   width: 128px;
   height: 128px;
   object-fit: cover;
   border-radius: 50%;
 }
-body{
-  background-color: #F5F4F6;
+body {
+  background-color: #f5f4f6;
 }
-
 
 .clicked {
   cursor: pointer;
@@ -41,6 +39,7 @@ body{
 .center_element {
   margin: auto;
   width: 50%;
+<<<<<<< HEAD
   position: relative;
 }
 
@@ -50,3 +49,6 @@ body{
   overflow-wrap: break-word;
   resize: none;
 }
+=======
+}
+>>>>>>> 62a1b8bbdffbf3663690c3f58b5621fca20e86f7

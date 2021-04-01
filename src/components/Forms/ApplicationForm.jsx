@@ -16,6 +16,7 @@ export class ApplicationForm extends Component {
     resume: "",
     additionalInfo: "",
   };
+
   componentDidUpdate(prevProps) {
     const { user } = this.props.context;
     if (this.props.context.isLoading !== prevProps.context.isLoading) {
@@ -32,6 +33,7 @@ export class ApplicationForm extends Component {
       });
     }
   }
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -72,7 +74,7 @@ export class ApplicationForm extends Component {
       .createApplication(formData)
       .then((response) => {
         console.log(response.data);
-        this.props.history.push("appconfirmation");
+        this.props.history.push("/appconfirmation");
       })
       .catch((error) => {
         console.log(error);

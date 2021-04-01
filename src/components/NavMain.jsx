@@ -59,9 +59,13 @@ const NavMain = (props) => {
                     </NavLink>
                   </div>
                 </div> */}
+              {context.user.role === "recruiter" && (
+                <NavLink className="navbar-item" to="/offer">
+                  Déposer une annonce
+                </NavLink>
+              )}
               <NavLink className="navbar-item" to="/profile">
-                {/* {context.user && `Bonjour ${context.user.firstName}`} */}
-                {context.user && `Mon compte`}
+                Mon compte
               </NavLink>
               <NavLink className="navbar-item has-text-white" exact to="/">
                 <h4
@@ -84,7 +88,7 @@ const NavMain = (props) => {
               <NavLink
                 className="navbar-item has-text-white"
                 exact
-                to="/offer"
+                to="/signup"
               >
                 <h4 className="button is-rounded is-outlined">Poster un job</h4>
               </NavLink>
