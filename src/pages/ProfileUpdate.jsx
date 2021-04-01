@@ -52,9 +52,6 @@ export class ProfileUpdate extends Component {
     formData.append("otherWebsite", otherWebsite);
     formData.append("resume", resume);
     formData.append("additionalInfo", additionalInfo);
-    // this.props.context.user &&
-    //   formData.append("user", this.props.context.user._id);
-    // ! user is added in the back in the end
 
     const id = this.props.match.params.id;
 
@@ -70,6 +67,10 @@ export class ProfileUpdate extends Component {
   };
 
   render() {
+    console.log(
+      `this.props.context.user.resume`,
+      this.props.context.user.resume
+    );
     return (
       <div className="content-wrapper">
         <div className="columns is-centered">
