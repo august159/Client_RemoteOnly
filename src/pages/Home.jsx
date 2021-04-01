@@ -1,9 +1,12 @@
 import React from "react";
 import "./../styles/custom.css";
 import Offers from "./../components/Offers";
+import { Link } from "react-router-dom";
+import { withUser } from "../components/Auth/withUser";
 
 class Home extends React.Component {
   render() {
+    console.log(`this.props.context`, this.props.context);
     return (
       <div>
         <section className="hero is-fullheight is-primary is-bold" id="hero">
@@ -17,9 +20,18 @@ class Home extends React.Component {
                 Les meilleurs emplois dans le tech et autres pour ceux qui
                 souhaitent démarrer leur carrière full remote
               </p>
-              {/* <Link > */}
-              <button className="button is-primary mt-4">Poster un job</button>
-              {/* </Link> */}
+              <Link
+                to={
+                  this.props.context.isLoggedIn &&
+                  this.props.context.user.role === "recruiter"
+                    ? "/offer"
+                    : "/signup"
+                }
+              >
+                <button className="button is-primary mt-4">
+                  Poster un job
+                </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -73,4 +85,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withUser(Home);

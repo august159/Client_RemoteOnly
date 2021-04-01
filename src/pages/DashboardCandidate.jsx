@@ -17,10 +17,7 @@ export class DashboardCandidate extends Component {
     return (
       <div>
         <h2>dashboard</h2>
-        <CandidateOffers
-          value={selectedOfferAppId}
-          handleSelection={this.handleSelection}
-        />
+        <CandidateOffers handleSelection={this.handleSelection} />
         {this.state.selectedOfferAppId && (
           <CandidateApplications applicationId={selectedOfferAppId} />
         )}

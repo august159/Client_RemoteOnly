@@ -19,8 +19,6 @@ const NavMain = (props) => {
       });
   }
 
-  console.log(`context`, context);
-
   return (
     <nav className="NavMain pr-4">
       <div className="navbar is-transparent  is-active">

@@ -17,25 +17,39 @@ export class ApplicationForm extends Component {
     additionalInfo: "",
   };
 
-  componentDidUpdate(prevProps) {
-    if (this.props.context.isLoading !== prevProps.context.isLoading) {
-      if (this.props.context.user) {
-        const { user } = this.props.context;
-        this.setState({
-          firstName: user.role === "candidate" ? user.firstName : "",
-          lastName: user.role === "candidate" ? user.lastName : "",
-          email: user.role === "candidate" ? user.email : "",
-          phone: user.role === "candidate" ? user.phone : "",
-          linkedIn: user.role === "candidate" ? user.linkedIn : "",
-          gitHub: user.role === "candidate" ? user.gitHub : "",
-          otherWebsite: user.role === "candidate" ? user.otherWebsite : "",
-          additionalInfo: user.role === "candidate" ? user.additionalInfo : "",
-        });
-      }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.context.isLoading !== prevProps.context.isLoading) {
+  //     if (this.props.context.user) {
+  //       const { user } = this.props.context;
+  //       this.setState({
+  //         firstName: user.role === "candidate" ? user.firstName : "",
+  //         lastName: user.role === "candidate" ? user.lastName : "",
+  //         email: user.role === "candidate" ? user.email : "",
+  //         phone: user.role === "candidate" ? user.phone : "",
+  //         linkedIn: user.role === "candidate" ? user.linkedIn : "",
+  //         gitHub: user.role === "candidate" ? user.gitHub : "",
+  //         otherWebsite: user.role === "candidate" ? user.otherWebsite : "",
+  //         additionalInfo: user.role === "candidate" ? user.additionalInfo : "",
+  //       });
+  //     }
+  //   }
+  // }
+
+  componentDidMount() {
+    if (this.props.context.user) {
+      const { user } = this.props.context;
+      this.setState({
+        firstName: user.role === "candidate" ? user.firstName : "",
+        lastName: user.role === "candidate" ? user.lastName : "",
+        email: user.role === "candidate" ? user.email : "",
+        phone: user.role === "candidate" ? user.phone : "",
+        linkedIn: user.role === "candidate" ? user.linkedIn : "",
+        gitHub: user.role === "candidate" ? user.gitHub : "",
+        otherWebsite: user.role === "candidate" ? user.otherWebsite : "",
+        additionalInfo: user.role === "candidate" ? user.additionalInfo : "",
+      });
     }
   }
-
-  componentDidMount() {}
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -84,7 +98,7 @@ export class ApplicationForm extends Component {
       .createApplication(formData)
       .then((response) => {
         console.log("response", response);
-        this.props.history.push("appconfirmation");
+        this.props.history.push("/appconfirmation");
       })
       .catch((error) => {
         console.log(error);
@@ -224,19 +238,6 @@ export class ApplicationForm extends Component {
           </div>
           <br />
 
-          {/* <div className="file">
-          <label htmlFor="resume" className="file-label">
-            CV
-          </label>
-          <input
-            onChange={this.handleUpload}
-            name="resume"
-            id="resume"
-            type="file"
-            id="resume"
-            className="file-input"
-          />
-        </div> */}
           <label htmlFor="additionalInfo" className="label">
             Ajouter un message
           </label>

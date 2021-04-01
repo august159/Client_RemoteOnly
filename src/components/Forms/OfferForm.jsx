@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import service from "../../api/apiHandler";
 import { withUser } from "../Auth/withUser";
+import { withRouter } from "react-router-dom";
 
 class OfferForm extends Component {
   state = {
@@ -52,7 +53,7 @@ class OfferForm extends Component {
         isActive: true,
       })
       .then((response) => {
-        this.props.history.push("/offer");
+        this.props.history.push("/recruiter");
       })
       .catch((error) => {
         console.log(error);
@@ -160,4 +161,4 @@ class OfferForm extends Component {
   }
 }
 
-export default withUser(OfferForm);
+export default withRouter(withUser(OfferForm));
