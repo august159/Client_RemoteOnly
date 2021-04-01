@@ -62,7 +62,7 @@ export class ProfileUpdate extends Component {
       .updateUser(id, formData)
       .then((response) => {
         console.log(response.data);
-        this.props.history.push("/");
+        this.props.history.push("/profile");
       })
       .catch((error) => {
         console.log(error);
@@ -218,17 +218,14 @@ export class ProfileUpdate extends Component {
               />
               <br />
               <div>
-                <Link to={`/profile`}>
-                  <button className="button is-primary mr-6">Modifier</button>
+                <button className="button is-primary mr-6">Modifier</button>
+                <Link to={`/signup`}>
+                  <button className="button is-danger has-text-centered ml-6">
+                    Supprimer votre profil
+                  </button>
                 </Link>
               </div>
-              <button>submit</button>
             </form>
-            <Link to={`/signup`}>
-              <button className="button is-danger has-text-centered ml-6">
-                Supprimer votre profil
-              </button>
-            </Link>
           </div>
         </div>
       </div>
