@@ -14,7 +14,7 @@ export class DashboardRecruiter extends Component {
 
   render() {
     const { selectedOfferId } = this.state;
-
+    console.log(`this.state`, this.state);
     return (
       <div className="bg">
         

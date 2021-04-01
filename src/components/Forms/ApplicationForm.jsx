@@ -64,9 +64,10 @@ export class ApplicationForm extends Component {
     formData.append("additionalInfo", additionalInfo);
     formData.append("isSelected", false);
     formData.append("isReviewed", false);
-    this.props.context.user &&
-      formData.append("user", this.props.context.user._id);
-    formData.append("offer", this.props.match.params.id);
+    // this.props.context.user &&
+    //   formData.append("user", this.props.context.user._id);
+    // ! user is added in the back in the end
+
     service
       .createApplication(formData)
       .then((response) => {
@@ -76,17 +77,6 @@ export class ApplicationForm extends Component {
       .catch((error) => {
         console.log(error);
       });
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      linkedIn: "",
-      gitHub: "",
-      otherWebsite: "",
-      resume: "",
-      additionalInfo: "",
-    });
   };
   render() {
     console.log(`this.props.match.params`, this.props.match.params);

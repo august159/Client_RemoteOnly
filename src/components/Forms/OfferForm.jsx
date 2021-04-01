@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import service from "../../api/apiHandler";
-import { withUser } from "../Auth/withUser";
 import { withRouter } from "react-router-dom";
 
 class OfferForm extends Component {
@@ -17,9 +16,9 @@ class OfferForm extends Component {
     recruitmentProcess:
       "1️⃣ Entretien téléphonique avec Stan, notre responsable de la croissance 2️⃣ Étude de cas 3️⃣ Examen de l'étude de cas avec Stan 4️⃣ Rencontre avec Eva, notre responsable du marketing en Allemagne",
     status: true,
-    company: "",
-    // TODO: get the company's id from the userContext
   };
+
+  // Company id is added in the back using req.session
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -58,17 +57,6 @@ class OfferForm extends Component {
       .catch((error) => {
         console.log(error);
       });
-
-    this.setState({
-      title: "",
-      salary: 0,
-      fieldWork: "",
-      startingDate: "",
-      contractType: "",
-      jobDescription: "",
-      profileDescription: "",
-      recruitmentProcess: "",
-    });
   };
 
   render() {
@@ -161,4 +149,4 @@ class OfferForm extends Component {
   }
 }
 
-export default withRouter(withUser(OfferForm));
+export default withRouter(OfferForm);
