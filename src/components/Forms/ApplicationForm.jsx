@@ -89,10 +89,9 @@ export class ApplicationForm extends Component {
     formData.append("additionalInfo", additionalInfo);
     formData.append("isSelected", false);
     formData.append("isReviewed", false);
-    this.props.context.user &&
-      formData.append("user", this.props.context.user._id);
-
-    console.log(`formData`, ...formData);
+    // this.props.context.user &&
+    //   formData.append("user", this.props.context.user._id);
+    // ! user is added in the back in the end
 
     service
       .createApplication(formData)
@@ -103,18 +102,6 @@ export class ApplicationForm extends Component {
       .catch((error) => {
         console.log(error);
       });
-
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      linkedIn: "",
-      gitHub: "",
-      otherWebsite: "",
-      resume: "",
-      additionalInfo: "",
-    });
   };
 
   render() {

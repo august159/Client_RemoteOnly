@@ -19,6 +19,21 @@ export class CandidateApplications extends Component {
       });
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.applicationId !== prevProps.applicationId) {
+      const id = this.props.applicationId;
+
+      apiHandler
+        .getApplication(id)
+        .then((appInfo) => {
+          this.setState({ appInfo });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
   render() {
     const {
       firstName,
@@ -36,19 +51,6 @@ export class CandidateApplications extends Component {
       <div>
         {this.state.appInfo && (
           <>
-            {/* <div className="box offerDetails">
-              <h1>{offer.title}</h1>
-              <p>{offer.fieldWork}</p>
-              <p>{offer.contractType}</p>
-              <p>Rémunération: {offer.salary} €/an</p>
-              <p>Date de début: {offer.startingDate}</p>
-              <h4>Description de l'offre</h4>
-              <p>{offer.jobDescription}</p>
-              <h4>Profil recherché</h4>
-              <p>{offer.profileDescription}</p>
-              <h4>Processus de recrutement</h4>
-              <p>{offer.recruitmentProcess}</p>
-            </div> */}
             <div className=" applicationDetails">
               <h1 className="title is-4">Ma candidature</h1>
               <h2 className="title is-5">
@@ -71,6 +73,20 @@ export class CandidateApplications extends Component {
               <p>{additionalInfo}</p>
             </div>
             {/* <button className="button is-info">Modifier ma candidature</button> */}
+
+            <div className="box offerDetails">
+              <h1>{offer.title}</h1>
+              <p>{offer.fieldWork}</p>
+              <p>{offer.contractType}</p>
+              <p>Rémunération: {offer.salary} €/an</p>
+              <p>Date de début: {offer.startingDate}</p>
+              <h4>Description de l'offre</h4>
+              <p>{offer.jobDescription}</p>
+              <h4>Profil recherché</h4>
+              <p>{offer.profileDescription}</p>
+              <h4>Processus de recrutement</h4>
+              <p>{offer.recruitmentProcess}</p>
+            </div>
           </>
         )}
       </div>
