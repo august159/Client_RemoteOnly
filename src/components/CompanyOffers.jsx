@@ -23,23 +23,32 @@ class CompanyOffers extends Component {
     return (
       <div>
         {this.state.offers && (
-          <>
+          <div className="media">
             {this.state.offers.map((offer) => (
               <div key={offer._id}>
-                <div
+                <div className="clicked"
                   onClick={() => {
                     handleSelection(offer._id);
                   }}
                 >
-                  <img src={offer.company.logo} alt={offer.company.name} />
-                  <p>Name: {offer.company.name}</p>
-                  <p>Intitulé du poste: {offer.title}</p>
-                  <p>Type de contrat: {offer.contractType}</p>
-                  <p>{!offer.isActive && `Offre pourvue`}</p>
+                  <div class="media-left">
+                    <figure class="image is-64x64 mb-2">
+                      <img src={offer.company.logo} alt={offer.company.name} />
+                    </figure>
+                  </div>
+                
+
+                <div class="media-content">
+                  <div class="content">
+                    <p><strong>Poste</strong> {offer.title}</p>
+                    <p><strong>Type de contrat: </strong>{offer.contractType}</p>
+                    <p>{!offer.isActive && `Offre pourvue`}</p>
+                  </div>
                 </div>
               </div>
+              </div>
             ))}
-          </>
+          </div>
         )}
       </div>
     );

@@ -16,12 +16,33 @@ export class DashboardCandidate extends Component {
 
     return (
       <div>
-        <h2>dashboard</h2>
-        <CandidateOffers handleSelection={this.handleSelection} />
-        {this.state.selectedOfferAppId && (
-          <CandidateApplications applicationId={selectedOfferAppId} />
-        )}
-        {/* <CandidateApplications applicationId={"606304e3f64f3733d7e849e4"} /> */}
+
+        
+        <section className="hero has-background-white-ter pt-0">
+          <div className="is-fullheight ">
+            <div className="hero-body ">
+              <div className="container">
+                <h2 className="title is-4">Dashboard</h2>
+                <div className="columns box-full ">
+                  <div className="column is-one-quarter">
+                    <div className="box">
+                      <CandidateOffers handleSelection={this.handleSelection} />
+                    </div>
+                  </div>
+                  <div className="column  is-three-quarter">
+                    <div className="box">
+                      {this.state.selectedOfferAppId && (
+                        <CandidateApplications
+                          applicationId={selectedOfferAppId}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }

@@ -28,7 +28,7 @@ class Home extends React.Component {
                     : "/signup"
                 }
               >
-                <button className="button is-primary mt-4">
+                <button className="button  is-info is-primary mt-4">
                   Poster un job
                 </button>
               </Link>
