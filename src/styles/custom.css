@@ -36,6 +36,10 @@ body {
   cursor: pointer;
 }
 
+.clicked:hover {
+  background-color: #fcfcfc;
+}
+
 .center_element {
   margin: auto;
   width: 50%;
