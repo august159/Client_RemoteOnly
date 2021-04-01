@@ -29,7 +29,7 @@ class Home extends React.Component {
                 }
               >
                 <button className="button  is-info is-primary mt-4">
-                  Poster un job
+                  Déposer une annonce
                 </button>
               </Link>
             </div>

@@ -27,8 +27,6 @@ export class CompanyApplications extends Component {
       apiHandler
         .getOffer(id)
         .then((offerInfo) => {
-          // console.log(`this.props`, this.props);
-          // console.log(`prevProps`, prevProps);
           this.setState({ applications: offerInfo.applications });
           console.log(`this.state.applications`, this.state.applications);
         })
