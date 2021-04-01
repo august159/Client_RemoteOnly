@@ -22,7 +22,6 @@ hr.solid {
   background-color: #f5f5f5;
 }
 
-
 #img {
   width: 128px;
   height: 128px;
@@ -34,7 +33,10 @@ hr.solid {
   background-color: black;
 } */
 
-
 .clicked {
   cursor: pointer;
+}
+
+body {
+  background-color: #f5f4f6;
 }

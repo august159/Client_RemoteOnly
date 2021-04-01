@@ -46,45 +46,51 @@ export class CompanyApplications extends Component {
           <>
             {this.state.applications.map((application) => (
               <div key={application._id}>
-                <h2 className="title is-4">
-                  {application.firstName} {application.lastName}
-                </h2>
-                {application.linkedIn && (
-                  <a
-                    href={application.linkedIn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Linkedin
-                  </a>
-                )}
-                {application.gitHub && (
-                  <a
-                    href={application.gitHub}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                )}
-                {application.otherWebsite && (
-                  <a
-                    href={application.otherWebsite}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Other website
-                  </a>
-                )}
-                <h4 className="title is-4">C.V.: </h4>
-                <embed
-                  src={application.resume}
-                  width={800}
-                  height={500}
-                  type="application/pdf"
-                />
-                <h4 className="title is-4">Informations supplémentaires:</h4>
-                <p>{application.additionalInfo}</p>
+                <div className="column  is-three-quarter">
+                  <div className="box">
+                    <h2 className="title is-4">
+                      {application.firstName} {application.lastName}
+                    </h2>
+                    {application.linkedIn && (
+                      <a
+                        href={application.linkedIn}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Linkedin
+                      </a>
+                    )}
+                    {application.gitHub && (
+                      <a
+                        href={application.gitHub}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        GitHub
+                      </a>
+                    )}
+                    {application.otherWebsite && (
+                      <a
+                        href={application.otherWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Other website
+                      </a>
+                    )}
+                    <h4 className="title is-4">C.V.: </h4>
+                    <embed
+                      src={application.resume}
+                      width={800}
+                      height={500}
+                      type="application/pdf"
+                    />
+                    <h4 className="title is-4">
+                      Informations supplémentaires:
+                    </h4>
+                    <p>{application.additionalInfo}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </>
