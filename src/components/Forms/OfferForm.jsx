@@ -61,90 +61,119 @@ class OfferForm extends Component {
 
   render() {
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="title">Intitulé de poste*</label>
-          <input
-            id="title"
-            onChange={this.handleChange}
-            value={this.state.title}
-            className="input"
-            name="title"
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="salary">Salaire</label>
-          <input
-            value={this.state.salary}
-            onChange={this.handleChange}
-            className="input pb-4"
-            name="salary"
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="fieldWork">Domaine</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.fieldWork}
-            className="input pb-4"
-            name="fieldWork"
-            type="dropdown"
-          />
-        </div>
-        <div>
-          <label htmlFor="startingDate">Date de début</label>
-          <input
-            value={this.state.startingDate}
-            onChange={this.handleChange}
-            className="input pb-4"
-            name="startingDate"
-            type="date"
-          />
+      <div className="container">
+        <div className="box my-6">
+          <div className="content-wrapper">
+            <div className="columns is-centered">
+              <div className="column is-6">
+                <h2 className="has-text-centered  title is-4 mb-6">Créer une nouvelle offre</h2>
+                <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+                  <label htmlFor="title" className="label">
+                    Intitulé de poste*
+                  </label>
+                  <input
+                    id="title"
+                    onChange={this.handleChange}
+                    value={this.state.title}
+                    className="input"
+                    name="title"
+                    type="text"
+                  />
+                  <br />
+                  <br />
+                  <label htmlFor="salary" className="label">
+                    Salaire
+                  </label>
+                  <input
+                    value={this.state.salary}
+                    onChange={this.handleChange}
+                    className="input"
+                    name="salary"
+                    type="text"
+                  />
+                  <br />
+                  <br />
+                  <label htmlFor="fieldWork" className="label">
+                    Domaine
+                  </label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.fieldWork}
+                    className="input"
+                    name="fieldWork"
+                    type="dropdown"
+                  />
+                  <br />
+                  <br />
+                  <label htmlFor="startingDate" className="label">
+                    Date de début
+                  </label>
+                  <input
+                    value={this.state.startingDate}
+                    onChange={this.handleChange}
+                    className="input"
+                    name="startingDate"
+                    type="date"
+                  />
+                  <br />
+                  <br />
+                  <label htmlFor="contractType" className="label">
+                    Type de contrat*
+                  </label>
+                  <input
+                    value={this.state.contractType}
+                    onChange={this.handleChange}
+                    className="input"
+                    name="contractType"
+                    type="dropdown"
+                  />
+                  <br />
+                  <br />
+                  <label htmlFor="jobDescription" className="label">
+                    Descriptif du poste*
+                  </label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.jobDescription}
+                    className="textarea"
+                    name="jobDescription"
+                    type="textarea"
+                  />
+                  <br />
+                  <label htmlFor="profileDescription" className="label">
+                    Profil recherché
+                  </label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.profileDescription}
+                    className="textarea"
+                    name="profileDescription"
+                    type="textarea"
+                  />
+                  <br />
+                  <label htmlFor="recruitmentProcess" className="label">
+                    Déroulement d'entretien
+                  </label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.recruitmentProcess}
+                    className="textarea"
+                    name="recruitmentProcess"
+                    type="textarea"
+                  />
+                  <br />
 
-          <label htmlFor="contractType">Type de contrat*</label>
-          <input
-            value={this.state.contractType}
-            onChange={this.handleChange}
-            className="input pb-4"
-            name="contractType"
-            type="dropdown"
-          />
+                  <div className="center_element">
+                    <button className="button is-link ">
+                      Confirmer et poster votre job
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label htmlFor="jobDescription">Descriptif du poste*</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.jobDescription}
-            className="textarea pb-4"
-            name="jobDescription"
-            type="textarea"
-          />
-        </div>
-        <div>
-          <label htmlFor="profileDescription">Profil recherché</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.profileDescription}
-            className="textarea pb-4"
-            name="profileDescription"
-            type="textarea"
-          />
-        </div>
-        <div>
-          <label htmlFor="recruitmentProcess">Déroulement d'entretien</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.recruitmentProcess}
-            className="textarea pb-4"
-            name="recruitmentProcess"
-            type="textarea"
-          />
-        </div>
-
-        <button className="button is-link">Poster pour 10€</button>
-      </form>
+      </div>
     );
   }
 }

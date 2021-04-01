@@ -21,7 +21,7 @@ export class DashboardRecruiter extends Component {
         <section className="hero  has-background-white-ter pt-0">
           
             <div className="hero-body mb-10">
-              <div className="container ">
+              <div className="container">
                 <h2 className="title is-4">Dashboard</h2>
                 <div className="columns box-full ">
                   <div className="column is-one-quarter">

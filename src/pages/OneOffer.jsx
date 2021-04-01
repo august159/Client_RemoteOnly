@@ -41,10 +41,15 @@ export class OneOffer extends Component {
       <>
         {this.state.offer.searchedOffer && (
           <div className="container">
-            <div className="box mt-6">
+            <div className="box my-6">
               {/* <div className=" my-2"> */}
 
-              <img className="center_element my-2" src={company.logo} alt="company-logo" id="img" />
+              <img
+                className="center_element my-2"
+                src={company.logo}
+                alt="company-logo"
+                id="img"
+              />
               <h2 className=" has-text-centered  title is-4">
                 {" "}
                 Postuler pour <strong>{title}</strong> chez{" "}
@@ -86,10 +91,14 @@ export class OneOffer extends Component {
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
                 {recruitmentProcess}
               </p>
+              <div className="center_element pt-4 mr-6">
+                <Link to={`/application/${this.props.match.params.id}`}>
+                  <button className="button is-link has-text-centered">
+                    Postuler
+                  </button>
+                </Link>
+              </div>
             </div>
-            <Link to={`/application/${this.props.match.params.id}`}>
-              <button className="button is-info my-10">Postuler</button>
-            </Link>
           </div>
           // </div>
         )}

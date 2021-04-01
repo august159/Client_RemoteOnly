@@ -9,7 +9,7 @@ const UserProfile = (props) => {
   const user = context.user;
   return (
     <div className="content-wrapper">
-      <div className="columns is-centered">
+      <div className="columns is-centered my-6">
         <div className="box column is-6 py-6 px-6">
           <h2 className="is-size-3 mb-6">Mon compte</h2>
           
