@@ -18,32 +18,34 @@ export class ApplicationForm extends Component {
   };
 
   componentDidMount() {
-    service
-      .getUser(this.props.context.user._id)
-      .then((response) => {
-        this.setState(response.searchedUser);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  componentDidUpdate(prevProps) {
-    const { user } = this.props.context;
-    if (this.props.context.isLoading !== prevProps.context.isLoading) {
-      this.setState({
-        // Import candidate date if logged in
-        firstName: user.role === "candidate" ? user.firstName : "",
-        lastName: user.role === "candidate" ? user.lastName : "",
-        email: user.role === "candidate" ? user.email : "",
-        phone: user.role === "candidate" ? user.phone : "",
-        linkedIn: user.role === "candidate" ? user.linkedIn : "",
-        gitHub: user.role === "candidate" ? user.gitHub : "",
-        otherWebsite: user.role === "candidate" ? user.otherWebsite : "",
-        additionalInfo: user.role === "candidate" ? user.additionalInfo : "",
-      });
+    if (this.props.context.isLoggedIn) {
+      service
+        .getUser(this.props.context.user._id)
+        .then((response) => {
+          this.setState(response.searchedUser);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
+
+  // componentDidUpdate(prevProps) {
+  //   const { user } = this.props.context;
+  //   if (this.props.context.isLoading !== prevProps.context.isLoading) {
+  //     this.setState({
+  //       // Import candidate date if logged in
+  //       firstName: user.role === "candidate" ? user.firstName : "",
+  //       lastName: user.role === "candidate" ? user.lastName : "",
+  //       email: user.role === "candidate" ? user.email : "",
+  //       phone: user.role === "candidate" ? user.phone : "",
+  //       linkedIn: user.role === "candidate" ? user.linkedIn : "",
+  //       gitHub: user.role === "candidate" ? user.gitHub : "",
+  //       otherWebsite: user.role === "candidate" ? user.otherWebsite : "",
+  //       additionalInfo: user.role === "candidate" ? user.additionalInfo : "",
+  //     });
+  //   }
+  // }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -102,7 +104,9 @@ export class ApplicationForm extends Component {
           <div className="box mt-6">
             <div className="columns is-centered">
               <div className="column is-6">
-                <h2 className="mb-6 has-text-centered  title is-4">Postulez pour ce job</h2>
+                <h2 className="mb-6 has-text-centered  title is-4">
+                  Postulez pour ce job
+                </h2>
                 <form
                   onSubmit={this.handleSubmit}
                   encType="multipart/form-data"
@@ -230,9 +234,7 @@ export class ApplicationForm extends Component {
                   <br />
                   <div className="center_element">
                     <Link to={`/appconfirmation`}>
-                      <button className="button is-link ">
-                        Postuler
-                      </button>
+                      <button className="button is-link ">Postuler</button>
                     </Link>
                     <Link to={`/signup`}>
                       <button className=".center_element button is-danger has-text-centered ">
