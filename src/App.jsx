@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import UserProfile from "./pages/UserProfile";
+import ProfileUpdate from "./pages/ProfileUpdate";
 import CompanyProfile from "./pages/CompanyProfile";
 import Application from "./pages/Application";
 import Offer from "./pages/Offer";
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/candidate" component={DashboardCandidate} />
         <Route exact path="/recruiter" component={DashboardRecruiter} />
         <Route exact path="/profile" component={UserProfile} />
+        <Route exact path="/profile/:id/" component={ProfileUpdate} />
         <Route exact path="/company" component={CompanyProfile} />
         <Route exact path="/offer" component={Offer} />
         <Route exact path="/offer/:id" component={OneOffer} />
