@@ -39,4 +39,12 @@ body {
 .center_element {
   margin: auto;
   width: 50%;
+  position: relative;
+}
+
+.input .textarea {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  resize: none;
 }
