@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import service from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
 import { withUser } from "../Auth/withUser";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 export class ApplicationForm extends Component {
   state = {
     // Import candidate date if logged in
@@ -84,7 +84,7 @@ export class ApplicationForm extends Component {
     service
       .createApplication(formData)
       .then((response) => {
-        console.log(response.data);
+        console.log(response);
         this.props.history.push("/appconfirmation");
       })
       .catch((error) => {
@@ -97,12 +97,14 @@ export class ApplicationForm extends Component {
       return <div>...Loading...</div>;
     }
     return (
-      <div className="content-wrapper">
-        <div className="container">
+      <div className="content-wrapper ">
+        <div className="container ">
           <div className="box mt-6">
-            <div className="columns is-centered">
+            <div className="columns is-centered m-6">
               <div className="column is-6">
-                <h2 className="mb-6 has-text-centered  title is-4">Postulez pour ce job</h2>
+                <h2 className="mb-6 has-text-centered  title is-4">
+                  Postulez pour ce job
+                </h2>
                 <form
                   onSubmit={this.handleSubmit}
                   encType="multipart/form-data"
@@ -229,16 +231,7 @@ export class ApplicationForm extends Component {
                   />
                   <br />
                   <div className="center_element">
-                    <Link to={`/appconfirmation`}>
-                      <button className="button is-link ">
-                        Postuler
-                      </button>
-                    </Link>
-                    <Link to={`/signup`}>
-                      <button className=".center_element button is-danger has-text-centered ">
-                        Créer votre compte
-                      </button>
-                    </Link>
+                    <button className="button is-link ">Postuler</button>
                   </div>
                 </form>
               </div>
