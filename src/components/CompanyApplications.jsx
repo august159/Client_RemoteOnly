@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
+import { Link } from "react-router-dom";
 
 export class CompanyApplications extends Component {
   state = {
@@ -8,12 +9,10 @@ export class CompanyApplications extends Component {
 
   componentDidMount() {
     const id = this.props.offerId;
-    console.log(`id`, id);
 
     apiHandler
       .getOffer(id)
       .then((offerInfo) => {
-        console.log(`offerInfo`, offerInfo);
         this.setState({ applications: offerInfo.applications });
       })
       .catch((error) => {
@@ -32,16 +31,33 @@ export class CompanyApplications extends Component {
                 <h2 className="title is-4">
                   {application.firstName} {application.lastName}
                 </h2>
-                <h4 className="title is-4">Portfolio:</h4>
-                <ul>
-                  {application.linkedIn && (
-                    <li>LinkedIn: {application.linkedIn}</li>
-                  )}
-                  {application.gitHub && <li>GitHub: {application.gitHub}</li>}
-                  {application.otherWebsite && (
-                    <li>Other website: {application.otherWebsite}</li>
-                  )}
-                </ul>
+                {application.linkedIn && (
+                  <a
+                    href={application.linkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Linkedin
+                  </a>
+                )}
+                {application.gitHub && (
+                  <a
+                    href={application.gitHub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                )}
+                {application.otherWebsite && (
+                  <a
+                    href={application.otherWebsite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Other website
+                  </a>
+                )}
                 <h4 className="title is-4">C.V.: </h4>
                 <embed
                   src={application.resume}
