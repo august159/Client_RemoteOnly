@@ -224,9 +224,9 @@ export class ApplicationForm extends Component {
                 <button className="button is-primary">Postuler</button>
               </Link>
               <Link to={`/signup`}>
-              <button className="button is-danger has-text-centered ">
-                Créer votre compte
-              </button>
+                <button className="button is-danger has-text-centered ">
+                  Créer votre compte
+                </button>
               </Link>
             </form>
           </div>

@@ -60,7 +60,7 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
-  getAppsFromLoggedInRecruiter() {
+  getOffersFromLoggedInRecruiter() {
     return service
       .get("api/user/recruiter")
       .then((res) => res.data)

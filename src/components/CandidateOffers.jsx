@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { withUser } from "./../components/Auth/withUser";
 import apiHandler from "./../api/apiHandler";
-import { Link } from "react-router-dom";
-
 export class CandidateOffers extends Component {
   state = {
     applications: [],
@@ -22,13 +20,13 @@ export class CandidateOffers extends Component {
   }
 
   render() {
-    const { value, handleSelection } = this.props;
+    const { handleSelection } = this.props;
     return (
       <div>
         {this.state.applications && (
           <>
             {this.state.applications.map((application) => (
-              <div>
+              <div key={application._id}>
                 <div
                   onClick={() => {
                     handleSelection(application._id);

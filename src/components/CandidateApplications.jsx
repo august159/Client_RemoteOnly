@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
-// import DashboardCandidate from "./../pages/DashboardCandidate";
-// import { withUser } from "./../components/Auth/withUser";
 
 export class CandidateApplications extends Component {
   state = {

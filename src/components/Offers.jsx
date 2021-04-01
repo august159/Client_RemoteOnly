@@ -9,9 +9,10 @@ export class Offers extends Component {
 
   componentDidMount() {
     apiHandler
-      .getOffers(this.state)
+      .getOffers()
       .then((offers) => {
         this.setState({ offers });
+        // console.log(`this.state.offers`, this.state.offers);
       })
       .catch((error) => {
         console.log(error);
@@ -49,8 +50,7 @@ export class Offers extends Component {
             </Link>
           ))}
         </div>
-        </div>
-      
+      </div>
     );
   }
 }
