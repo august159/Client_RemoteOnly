@@ -29,12 +29,16 @@ hr.solid {
   object-fit: cover;
   border-radius: 50%;
 }
-/* 
-.bg {
-  background-color: black;
-} */
+body{
+  background-color: #F5F4F6;
+}
 
 
 .clicked {
   cursor: pointer;
+}
+
+.center_element {
+  margin: auto;
+  width: 50%;
 }

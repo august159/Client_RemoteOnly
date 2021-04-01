@@ -33,7 +33,11 @@ export class CandidateApplications extends Component {
     console.log(`this.state.appInfo`, this.state.appInfo);
     console.log(`offer`, offer);
     return (
+
+      
+
       <div>
+      
         {this.state.appInfo && (
           <>
             {/* <div className="box offerDetails">
@@ -51,6 +55,7 @@ export class CandidateApplications extends Component {
             </div> */}
             <div className=" applicationDetails">
               <h1 className="title is-4">Ma candidature</h1>
+
               <h2 className="title is-5">
                 {firstName} {lastName}
               </h2>

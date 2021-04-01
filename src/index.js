@@ -5,6 +5,7 @@ import UserProvider from "./components/Auth/UserProvider";
 import App from "./App";
 import 'bulma/css/bulma.css';
 
+
 import "./styles/reset.css";
 import "./styles/global.css";
 

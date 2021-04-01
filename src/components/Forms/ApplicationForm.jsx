@@ -113,7 +113,7 @@ export class ApplicationForm extends Component {
               <br />
               <br />
               <label htmlFor="lastName" className="label">
-                NOM*
+                Nom*
               </label>
               <input
                 value={this.state.lastName}
