@@ -82,10 +82,10 @@ export class OneOffer extends Component {
                 {contractType}
               </p>
 
-              <h2 className="title is-6 my-2">Date de début</h2>
+              {/* <h2 className="title is-6 my-2">Date de début</h2>
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
                 {dateFormat(startingDate, "dd/mm/yyyy")}
-              </p>
+              </p> */}
 
               <h2 className="title is-6 my-2">Description de l'offre</h2>
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
