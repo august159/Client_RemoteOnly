@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
+import { HashLink } from "react-router-hash-link";
 import "./../styles/custom.css";
 
 const NavMain = (props) => {
@@ -31,7 +32,7 @@ const NavMain = (props) => {
           </NavLink>
         </div>
         <div className="navbar-menu navbar-end">
-          {context.isLoggedIn && (
+          {context.user && (
             <React.Fragment>
               <NavLink
                 className="navbar-item"
@@ -59,6 +60,11 @@ const NavMain = (props) => {
                     </NavLink>
                   </div>
                 </div> */}
+              {context.user.role === "candidate" && (
+                <HashLink className="navbar-item" to="/#offers">
+                  Offres d'emplois
+                </HashLink>
+              )}
               {context.user.role === "recruiter" && (
                 <NavLink className="navbar-item" to="/offer">
                   Déposer une annonce
@@ -77,7 +83,7 @@ const NavMain = (props) => {
               </NavLink>
             </React.Fragment>
           )}
-          {!context.isLoggedIn && (
+          {!context.user && (
             <React.Fragment>
               <NavLink className="navbar-item" exact to="/signin">
                 <h4>Connexion</h4>

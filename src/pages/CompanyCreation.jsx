@@ -1,7 +1,10 @@
 import React from "react";
-import FormSignin from "../components/Forms/FormSignin";
+import CompanyForm from "../components/Forms/CompanyForm";
+import { withUser } from "../components/Auth/withUser";
 
-const Signin = (props) => {
+const CompanyCreation = (props) => {
+  console.log(`props.context`, props.context);
+
   return (
     <div className="container">
       <div className="hero-body">
@@ -12,11 +15,11 @@ const Signin = (props) => {
               alt="background_inscription"
             />
           </div>
-          <div className="column is-half">
+          <div className="column is-full">
             <h3 className="is-size-3 has-text-weight-semibold mb-4">
-              Connexion à l'espace
+              Créer votre compte
             </h3>
-            <FormSignin />
+            <CompanyForm />
           </div>
         </div>
       </div>
@@ -24,4 +27,4 @@ const Signin = (props) => {
   );
 };
 
-export default Signin;
+export default withUser(CompanyCreation);

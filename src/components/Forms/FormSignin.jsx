@@ -7,6 +7,7 @@ class FormSignin extends Component {
   state = {
     email: "",
     password: "",
+    errorMessage: "",
   };
 
   handleChange = (event) => {
@@ -22,19 +23,16 @@ class FormSignin extends Component {
     apiHandler
       .signin(this.state)
       .then((data) => {
-        console.log(`data`, data);
         this.props.context.setUser(data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data);
+        this.setState({ errorMessage: error.response.data.message });
         // Display error message here, if you set the state
       });
   };
 
   render() {
-    console.log(`this.props`, this.props);
-    console.log(`this.state`, this.state);
-
     if (this.props.context.user) {
       return <Redirect to="/" />;
     }
@@ -42,6 +40,17 @@ class FormSignin extends Component {
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <div className="content-wrapper">
+          {this.state.errorMessage !== "" && (
+            <>
+              <div class="icon-text">
+                <span class="icon has-text-warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                <span>Attention</span>
+              </div>
+              <p class="block">{this.state.errorMessage}</p>
+            </>
+          )}
           <div className="columns is-left">
             <div className="column is-6">
               <label htmlFor="email">Email</label>

@@ -66,7 +66,10 @@ class OfferForm extends Component {
           <div className="content-wrapper">
             <div className="columns is-centered">
               <div className="column is-6">
-                <h2 className="has-text-centered  title is-4 mb-6">Merci de remplir le formulaire ci-après pour créer une annonce.</h2>
+                <h2 className="has-text-centered  title is-4 mb-6">
+                  Merci de remplir le formulaire ci-après pour créer une
+                  annonce.
+                </h2>
                 <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                   <label htmlFor="title" className="label">
                     Intitulé de poste*

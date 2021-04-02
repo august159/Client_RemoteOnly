@@ -15,6 +15,7 @@ import DashboardRecruiter from "./pages/DashboardRecruiter";
 import ApplicationConfirmation from "./pages/ApplicationConfirmation";
 import OneOffer from "./pages/OneOffer";
 import OneApplication from "./pages/OneApplication";
+import CompanyCreation from "./pages/CompanyCreation";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/offer" component={Offer} />
         <Route exact path="/offer/:id" component={OneOffer} />
         <Route exact path="/application/:id" component={OneApplication} />
+        <Route exact path="/companysignup" component={CompanyCreation} />
       </Switch>
     </div>
   );

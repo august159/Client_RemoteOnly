@@ -22,7 +22,7 @@ class Home extends React.Component {
               </p>
               <Link
                 to={
-                  this.props.context.isLoggedIn &&
+                  this.props.context.user &&
                   this.props.context.user.role === "recruiter"
                     ? "/offer"
                     : "/signup"
@@ -70,11 +70,10 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="hero has-background-white-ter">
           <div className="hero-body">
             <div className="content-wrapper">
-              <div className="columns is-centered">
+              <div className="columns is-centered" id="offers">
                 <Offers />
               </div>
             </div>

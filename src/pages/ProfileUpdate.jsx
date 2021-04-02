@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import service from "../api/apiHandler";
 import { Link } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
-import { withRouter } from "react-router-dom";
 
 export class ProfileUpdate extends Component {
   state = {

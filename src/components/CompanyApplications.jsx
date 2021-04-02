@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
-import { Link } from "react-router-dom";
+import "./../styles/custom.css";
 
 export class CompanyApplications extends Component {
   state = {
@@ -39,62 +39,99 @@ export class CompanyApplications extends Component {
   render() {
     console.log(`this.state.applications`, this.state.applications);
     return (
-      <div>
+      <div className="applications wrapper">
         {this.state.applications.length > 0 ? (
           <>
             {this.state.applications.map((application) => (
               <div key={application._id}>
-                <div className="column  is-three-quarter">
-                  <div className="box">
-                    <h2 className="title is-4">
-                      {application.firstName} {application.lastName}
-                    </h2>
-                    {application.linkedIn && (
+                <div className="applications column  is-three-quarter">
+                  <div className="applications box p-0">
+                    <div class="card-content">
+                      <h2 className="applications title is-3">
+                        {application.firstName} {application.lastName}
+                      </h2>
+                      <div className="applications icons is-flex is-justify-content-flex-end">
+                        {application.linkedIn && (
+                          <a
+                            className="mr-2 clicked"
+                            href={application.linkedIn}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i class="fab fa-linkedin"></i>
+                          </a>
+                        )}
+                        {application.gitHub && (
+                          <a
+                            className="mr-2 clicked"
+                            href={application.gitHub}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i class="fab fa-github"></i>
+                          </a>
+                        )}
+                        {application.otherWebsite && (
+                          <a
+                            className="clicked"
+                            href={application.otherWebsite}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i class="fas fa-link"></i>
+                          </a>
+                        )}
+                      </div>
+                      <p>
+                        <strong>
+                          <i class="fas fa-phone-alt"></i>
+                        </strong>
+                        {"  "}
+                        {application.phone}
+                      </p>
+                      <p>
+                        <i class="fas fa-at"></i>
+                        {"  "}
+                        {application.email}
+                      </p>
+                      <br></br>
+                      <h4 className="applications title is-6 mb-2">
+                        Informations supplémentaires:
+                      </h4>
+                      <p>{application.additionalInfo}</p>
+                    </div>
+                    <footer class="card-footer">
+                      {application.resume && (
+                        <a
+                          href={application.resume}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="card-footer-item"
+                        >
+                          C.V.
+                        </a>
+                      )}
                       <a
-                        href={application.linkedIn}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="mailto:{application.email}"
+                        class="card-footer-item"
                       >
-                        Linkedin
+                        Email
                       </a>
-                    )}
-                    {application.gitHub && (
                       <a
-                        href={application.gitHub}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="tel:{application.phone}"
+                        class="card-footer-item"
                       >
-                        GitHub
+                        Appel
                       </a>
-                    )}
-                    {application.otherWebsite && (
-                      <a
-                        href={application.otherWebsite}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Other website
-                      </a>
-                    )}
-                    <h4 className="title is-4">C.V.: </h4>
-                    <embed
-                      src={application.resume}
-                      width={800}
-                      height={500}
-                      type="application/pdf"
-                    />
-                    <h4 className="title is-4">
-                      Informations supplémentaires:
-                    </h4>
-                    <p>{application.additionalInfo}</p>
+                    </footer>
                   </div>
                 </div>
               </div>
             ))}
           </>
         ) : (
-          <div className="column  is-three-quarter">
-            <div className="box">
+          <div className="applications column  is-three-quarter">
+            <div className="applications box">
               <h1>
                 Aucune candidature à ce stade ! Revenez plus tard ou pensez à
                 modifier votre annonce pour la rendre plus attractive

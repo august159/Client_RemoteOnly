@@ -48,3 +48,21 @@ body {
   overflow-wrap: break-word;
   resize: none;
 }
+
+.logo {
+  width: 35px;
+  height: 35px;
+}
+
+.applications a {
+  text-decoration: none;
+  color: black;
+}
+
+applications wrapper {
+  width: 100%;
+}
+
+/* applications icons {
+  gap: 10px;
+} */

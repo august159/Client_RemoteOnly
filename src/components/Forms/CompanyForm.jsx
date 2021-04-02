@@ -51,7 +51,7 @@ export class CompanyForm extends Component {
       .createCompany(formData)
       .then((response) => {
         console.log(`response`, response);
-        this.props.history.push("/company"); // Redirection to company dashboard
+        this.props.history.push("/recruiter"); // Redirection to company dashboard
       })
       .catch((error) => {
         console.dir(error);

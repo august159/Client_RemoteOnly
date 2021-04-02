@@ -5,11 +5,7 @@ import OfferForm from "../components/Forms/OfferForm";
 const OfferCreation = (props) => {
   return (
     <div>
-      
-      
-      
-          <OfferForm />
-
+      <OfferForm />
     </div>
   );
 };
