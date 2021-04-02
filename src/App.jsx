@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import NavMain from "./components/NavMain";
+import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
@@ -16,6 +17,7 @@ import ApplicationConfirmation from "./pages/ApplicationConfirmation";
 import OneOffer from "./pages/OneOffer";
 import OneApplication from "./pages/OneApplication";
 import CompanyCreation from "./pages/CompanyCreation";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -40,7 +42,9 @@ function App() {
         <Route exact path="/offer/:id" component={OneOffer} />
         <Route exact path="/application/:id" component={OneApplication} />
         <Route exact path="/companysignup" component={CompanyCreation} />
+        <Route path="*" component={NotFound} />
       </Switch>
+      <Footer />
     </div>
   );
 }

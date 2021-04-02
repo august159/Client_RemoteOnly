@@ -94,7 +94,7 @@ export class ProfileUpdate extends Component {
     return (
       <div className="content-wrapper">
         <div className="columns is-centered">
-          <div className="column is-6">
+          <div className="column is-6 box m-6">
             <h2 className="is-size-3 mb-6">Modifier votre Profil</h2>
 
             <form onSubmit={this.handleSubmit} encType="multipart/form-data">

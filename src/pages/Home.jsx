@@ -3,6 +3,7 @@ import "./../styles/custom.css";
 import Offers from "./../components/Offers";
 import { Link } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
+// import SearchBar from "./../components/SearchBar";
 
 class Home extends React.Component {
   render() {
@@ -68,6 +69,7 @@ class Home extends React.Component {
                 </div>
               </div>
             </div>
+            {/* <SearchBar /> */}
           </div>
         </section>
         <section className="hero has-background-white-ter">

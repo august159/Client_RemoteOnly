@@ -15,27 +15,24 @@ export class DashboardCandidate extends Component {
     const { selectedOfferAppId } = this.state;
 
     return (
-      <div>
+      
         <section className="hero has-background-white-ter pt-0">
-          <div className="is-fullheight ">
-            <div className="hero-body ">
-              <div className="container">
-                <h2 className="title is-4">Dashboard</h2>
-                <div className="columns box-full ">
-                  <div className="column is-one-quarter">
-                    <div className="box">
-                      <CandidateOffers handleSelection={this.handleSelection} />
-                    </div>
-                  </div>
-                  {this.state.selectedOfferAppId && (
-                    <CandidateApplications applicationId={selectedOfferAppId} />
-                  )}
-                </div>
+          <div className="hero-body mb-10">
+            <div className="container ">
+              <h2 className="title is-4">Dashboard</h2>
+              <div className="columns box-full ">
+                <CandidateOffers handleSelection={this.handleSelection} />
+                {this.state.selectedOfferAppId && (
+                  <>
+                  <CandidateApplications applicationId={selectedOfferAppId} />
+                  </>
+                )}
+                
               </div>
             </div>
           </div>
         </section>
-      </div>
+      
     );
   }
 }
