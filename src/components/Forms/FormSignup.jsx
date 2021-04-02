@@ -16,7 +16,6 @@ class FormSignup extends Component {
     const { name, value, type } = event.target;
     if (type === "checkbox") {
       value = event.target.checked;
-      console.log(`event`, event);
     }
     this.setState({ [name]: value });
   };
@@ -26,9 +25,7 @@ class FormSignup extends Component {
     service
       .signup(this.state)
       .then((data) => {
-        console.log(`data`, data);
         this.props.context.setUser(data); //? Defines the values in currentUser ?
-        console.log(`this.state.role`, this.state.role);
         this.props.history.push(
           this.state.role === "recruiter" ? "/companysignup" : "/profile"
         );

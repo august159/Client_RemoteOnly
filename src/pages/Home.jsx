@@ -7,7 +7,6 @@ import { withUser } from "../components/Auth/withUser";
 
 class Home extends React.Component {
   render() {
-    console.log(`this.props.context`, this.props.context);
     return (
       <div>
         <section className="hero is-fullheight is-primary is-bold" id="hero">

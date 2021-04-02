@@ -27,12 +27,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <ProtectedRoute
-          role="candidate"
-          exact
-          path="/application/:id"
-          component={Application}
-        />
+        <Route exact path="/application/:id" component={Application} />
         <Route
           exact
           path="/appconfirmation"
@@ -65,12 +60,7 @@ function App() {
           component={Offer}
         />
         <Route exact path="/offer/:id" component={OneOffer} />
-        <ProtectedRoute
-          role="candidate"
-          exact
-          path="/application/:id"
-          component={OneApplication}
-        />
+        <Route exact path="/application/:id" component={OneApplication} />
         <ProtectedRoute
           role="recruiter"
           exact

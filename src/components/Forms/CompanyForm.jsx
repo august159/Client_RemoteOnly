@@ -45,12 +45,10 @@ export class CompanyForm extends Component {
     formData.append("description", description);
     this.props.context.user &&
       formData.append("user", this.props.context.user._id);
-    console.log(`formData`, ...formData);
 
     service
       .createCompany(formData)
       .then((response) => {
-        console.log(`response`, response);
         this.props.history.push("/recruiter"); // Redirection to company dashboard
       })
       .catch((error) => {

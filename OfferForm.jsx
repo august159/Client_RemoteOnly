@@ -20,7 +20,6 @@ class OfferForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("clicked");
 
     apiHandler
       .postOffer({

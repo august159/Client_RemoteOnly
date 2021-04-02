@@ -81,7 +81,6 @@ export class ApplicationForm extends Component {
     formData.append("isReviewed", false);
     formData.append("offer", this.props.match.params.id);
 
-    console.log("this.props.match.params.id :>> ", this.props.match.params.id);
     // this.props.context.user &&
     //   formData.append("user", this.props.context.user._id);
     // ! user is added in the back in the end
@@ -105,7 +104,6 @@ export class ApplicationForm extends Component {
     }
   };
   render() {
-    console.log(`this.props.match.params`, this.props.match.params);
     if (this.props.context.isLoading) {
       return <div>...Loading...</div>;
     }

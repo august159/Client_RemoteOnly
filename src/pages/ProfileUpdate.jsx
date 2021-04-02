@@ -21,7 +21,6 @@ export class ProfileUpdate extends Component {
     service
       .getUser(this.props.context.user._id)
       .then((response) => {
-        console.log(`response`, response);
         this.setState(response.searchedUser);
       })
       .catch((error) => {
@@ -90,7 +89,6 @@ export class ProfileUpdate extends Component {
   };
 
   render() {
-    console.log(`this.state`, this.state);
     return (
       <div className="content-wrapper">
         <div className="columns is-centered">

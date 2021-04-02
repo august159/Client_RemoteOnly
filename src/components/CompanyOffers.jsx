@@ -20,7 +20,6 @@ class CompanyOffers extends Component {
   }
 
   render() {
-    console.log(`this.state`, this.state);
     const { handleSelection } = this.props;
     return (
       <div>

@@ -28,7 +28,6 @@ export class CompanyApplications extends Component {
         .getOffer(id)
         .then((offerInfo) => {
           this.setState({ applications: offerInfo.applications });
-          console.log(`this.state.applications`, this.state.applications);
         })
         .catch((error) => {
           console.log(error);
@@ -37,7 +36,6 @@ export class CompanyApplications extends Component {
   }
 
   render() {
-    console.log(`this.state.applications`, this.state.applications);
     return (
       <div className="applications wrapper">
         {this.state.applications.length > 0 ? (

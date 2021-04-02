@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
 import { Link } from "react-router-dom";
-import dateFormat from "dateformat";
 
 export class OneOffer extends Component {
   state = {
@@ -36,7 +35,6 @@ export class OneOffer extends Component {
       recruitmentProcess,
       company,
     } = this.state.offer.searchedOffer ? this.state.offer.searchedOffer : {};
-    // console.log(`company.title`, company.title)
 
     return (
       <>
@@ -82,10 +80,10 @@ export class OneOffer extends Component {
                 {contractType}
               </p>
 
-              <h2 className="title is-6 my-2">Date de début</h2>
+              {/* <h2 className="title is-6 my-2">Date de début</h2>
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
                 {dateFormat(startingDate, "dd/mm/yyyy")}
-              </p>
+              </p> */}
 
               <h2 className="title is-6 my-2">Description de l'offre</h2>
               <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">

@@ -10,9 +10,7 @@ export class CandidateOffers extends Component {
     apiHandler
       .getAppsFromLoggedInCandidate()
       .then((userInfo) => {
-        console.log(`userInfo.applications`, userInfo);
         this.setState({ applications: userInfo.applications });
-        console.log(`userInfo.applications`, userInfo);
       })
       .catch((error) => {
         console.log(error);

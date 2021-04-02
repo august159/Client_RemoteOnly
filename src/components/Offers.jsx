@@ -12,7 +12,6 @@ export class Offers extends Component {
       .getOffers()
       .then((offers) => {
         this.setState({ offers });
-        // console.log(`this.state.offers`, this.state.offers);
       })
       .catch((error) => {
         console.log(error);

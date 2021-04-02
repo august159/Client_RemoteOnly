@@ -12,7 +12,6 @@ export class CompanyProfile extends Component {
       .getCompany(this.state)
       .then((response) => {
         this.state({ companies: response.data });
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

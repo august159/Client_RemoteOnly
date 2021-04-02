@@ -3,8 +3,6 @@ import CompanyForm from "../components/Forms/CompanyForm";
 import { withUser } from "../components/Auth/withUser";
 
 const CompanyCreation = (props) => {
-  console.log(`props.context`, props.context);
-
   return (
     <div className="container">
       <div className="hero-body">

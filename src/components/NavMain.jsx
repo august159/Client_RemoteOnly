@@ -13,7 +13,6 @@ const NavMain = (props) => {
       .logout()
       .then(() => {
         context.removeUser();
-        console.log(`context after logout`, context);
       })
       .catch((error) => {
         console.log(error);
