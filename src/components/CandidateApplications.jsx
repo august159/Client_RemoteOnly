@@ -52,7 +52,9 @@ export class CandidateApplications extends Component {
           <>
             <div className="column  is-three-quarter">
               <div className="box">
-                <h1 className="title is-6">Ma candidature</h1>
+                <h1 className=" has-text-centered  title is-3">
+                  Ma candidature
+                </h1>
                 <h2 className="title is-6">
                   {firstName} {lastName}
                 </h2>
@@ -62,25 +64,74 @@ export class CandidateApplications extends Component {
                   {gitHub && <li>GitHub: {gitHub}</li>}
                   {otherWebsite && <li>Other website: {otherWebsite}</li>}
                 </ul>
-                <h4 className="title is-6">C.V.: </h4>
-                <embed
-                  src={resume}
-                  width={800}
-                  height={500}
-                  type="application/pdf"
-                />
-                <h4 className="title is-5">Informations supplémentaires:</h4>
+                <h4 className="title is-6 mt-5">C.V.: </h4>
+                <div className="has-text-centered">
+                  <embed
+                    src={resume}
+                    width={800}
+                    height={500}
+                    type="application/pdf"
+                  />
+                </div>
+                <h4 className="title is-6 mt-5">
+                  Informations supplémentaires:
+                </h4>
                 <p>{additionalInfo}</p>
+                <div className="has-text-centered">
+                  <button className="button is-link has-text-centered">
+                    Modifier ma candidature
+                  </button>
+                </div>
                 <hr />
-                <h1>{offer.title}</h1>
-                <p>{offer.fieldWork}</p>
-                <p>{offer.contractType}</p>
-                <p>Rémunération: {offer.salary} €/an</p>
-                <p>Date de début: {offer.startingDate}</p>
-                <h4>Description de l'offre</h4>
-                <p>{offer.jobDescription}</p>
+                <h1 className=" has-text-centered  title is-3">
+                  Récapitulatif de l'offre candidatée
+                </h1>
+                <h2 className=" has-text-centered  title is-4">
+                  {" "}
+                  <strong>{offer.title}</strong> chez{" "}
+                  <strong>{offer.company.name}</strong>
+                </h2>
+
+                <h2 className="title is-6 my-2">Domaine d'activité</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                  {offer.fieldWork}
+                </p>
+
+                <h2 className="title is-6 my-2">Description du poste</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
+                  {offer.jobDescription}
+                </p>
+
+                <h2 className="title is-6 my-2">Profil recherché</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                  {offer.profileDescription}
+                </p>
+
+                <h2 className="title is-6 my-2">Rémunération</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                  {offer.salary} €/an
+                </p>
+
+                <h2 className="title is-6 my-2">Type de contrat</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                  {offer.contractType}
+                </p>
+
+                {/* <h2 className="title is-6 my-2">Date de début</h2>
+<p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+{dateFormat(startingDate, "dd/mm/yyyy")}
+</p> */}
+
+                <h2 className="title is-6 my-2">Description de l'offre</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                  {offer.jobDescription}
+                </p>
+
+                <h2 className="title is-6 my-2">Processus de recrutement</h2>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif ">
+                  {offer.recruitmentProcess}
+                </p>
               </div>
-              {/* <button className="button is-info">Modifier ma candidature</button> */}
             </div>
           </>
         )}
