@@ -55,16 +55,28 @@ export class CandidateApplications extends Component {
                 <h1 className=" has-text-centered  title is-3">
                   Ma candidature
                 </h1>
-                <h2 className="title is-6">
+                <h2 className="title is-6 my-2">
                   {firstName} {lastName}
                 </h2>
-                <h4 className="title is-6">Portfolio:</h4>
+                <h4 className="title is-6 my-2">Portfolio:</h4>
                 <ul>
-                  {linkedIn && <li>LinkedIn: {linkedIn}</li>}
-                  {gitHub && <li>GitHub: {gitHub}</li>}
-                  {otherWebsite && <li>Other website: {otherWebsite}</li>}
+                  {linkedIn && (
+                    <li className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
+                      LinkedIn: {linkedIn}
+                    </li>
+                  )}
+                  {gitHub && (
+                    <li className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
+                      GitHub: {gitHub}
+                    </li>
+                  )}
+                  {otherWebsite && (
+                    <li className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
+                      Other website: {otherWebsite}
+                    </li>
+                  )}
                 </ul>
-                <h4 className="title is-6 mt-5">C.V.: </h4>
+                <h4 className="title is-6 my-2">C.V.: </h4>
                 <div className="has-text-centered">
                   <embed
                     src={resume}
@@ -73,10 +85,12 @@ export class CandidateApplications extends Component {
                     type="application/pdf"
                   />
                 </div>
-                <h4 className="title is-6 mt-5">
+                <h4 className="title is-6 my-2">
                   Informations supplémentaires:
                 </h4>
-                <p>{additionalInfo}</p>
+                <p className="is-size-7 has-text-justified has-text-weight-normal is-family-sans-serif">
+                  {additionalInfo}
+                </p>
                 <div className="has-text-centered">
                   <button className="button is-link has-text-centered">
                     Modifier ma candidature
