@@ -27,21 +27,56 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/application/:id" component={Application} />
+        <ProtectedRoute
+          role="candidate"
+          exact
+          path="/application/:id"
+          component={Application}
+        />
         <Route
           exact
           path="/appconfirmation"
           component={ApplicationConfirmation}
         />
-        <Route exact path="/candidate" component={DashboardCandidate} />
-        <Route exact path="/recruiter" component={DashboardRecruiter} />
+        <ProtectedRoute
+          role="candidate"
+          exact
+          path="/candidate"
+          component={DashboardCandidate}
+        />
+        <ProtectedRoute
+          role="recruiter"
+          exact
+          path="/recruiter"
+          component={DashboardRecruiter}
+        />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/profile/:id/" component={ProfileUpdate} />
-        <Route exact path="/company" component={CompanyProfile} />
-        <Route exact path="/offer" component={Offer} />
+        <ProtectedRoute
+          role="recruiter"
+          exact
+          path="/company"
+          component={CompanyProfile}
+        />
+        <ProtectedRoute
+          role="recruiter"
+          exact
+          path="/offer"
+          component={Offer}
+        />
         <Route exact path="/offer/:id" component={OneOffer} />
-        <Route exact path="/application/:id" component={OneApplication} />
-        <Route exact path="/companysignup" component={CompanyCreation} />
+        <ProtectedRoute
+          role="candidate"
+          exact
+          path="/application/:id"
+          component={OneApplication}
+        />
+        <ProtectedRoute
+          role="recruiter"
+          exact
+          path="/companysignup"
+          component={CompanyCreation}
+        />
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />

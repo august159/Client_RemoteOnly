@@ -46,18 +46,23 @@ export class CandidateOffers extends Component {
 
                       <div class="media-content">
                         <div class="content">
-                          <p><strong>Name</strong>{application.offer.company.name}</p>
-                          <p><strong>Intitulé du poste</strong>{application.offer.title}</p>
                           <p>
-                            <strong>Type de contrat</strong> {application.offer.contractType}
+                            <strong>Name</strong>
+                            {application.offer.company.name}
+                          </p>
+                          <p>
+                            <strong>Intitulé du poste</strong>
+                            {application.offer.title}
+                          </p>
+                          <p>
+                            <strong>Type de contrat</strong>{" "}
+                            {application.offer.contractType}
                           </p>
                           <p>
                             {!application.offer.isActive && `Offre pourvue`}
                           </p>
-                          <hr />
                         </div>
                       </div>
-                      
                     </div>
                   </div>
                 ))}
